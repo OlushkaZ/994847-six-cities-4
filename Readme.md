@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Елена Гонтарева](https://up.htmlacademy.ru/react/4/user/994847).
-* Наставник: `Неизвестно`.
+* Наставник: [Сергей Сергеев](https://up.htmlacademy.ru/react/4/user/1205257).
 
 ---
 
