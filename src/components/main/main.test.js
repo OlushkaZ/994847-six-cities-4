@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main.jsx';
-import RENTAL_OFFERS_NAMES from '../../mocks/rental-offers';
+import {RENTAL_OFFERS_NAMES} from '../../mocks/rental-offers';
 
 it(`Should render Main correctly`, () => {
   const tree = renderer

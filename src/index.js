@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
-import RENTAL_OFFERS_NAMES from './mocks/rental-offers';
+import {RENTAL_OFFERS_NAMES} from './mocks/rental-offers';
 
 const RENTAL_OFFERS_COUNT = 5;
 

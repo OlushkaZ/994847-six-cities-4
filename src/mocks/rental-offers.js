@@ -1,4 +1,4 @@
-export default [
+export const RENTAL_OFFERS_NAMES = [
   `Beautiful  luxurious apartment at great location`,
   `Wood and stone place`,
   `Canal View Prinsengracht`,

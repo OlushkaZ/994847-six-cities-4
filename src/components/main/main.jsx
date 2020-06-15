@@ -1,5 +1,5 @@
 import React from 'react';
-import rentalOffersTypes from '../../types/rental-offers';
+import {rentalOffersTypes} from '../../types/rental-offers';
 
 const Main = (props) => {
   const {rentalOffersCount, rentalOffersNames, onHeaderClick} = props;

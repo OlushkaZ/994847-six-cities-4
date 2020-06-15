@@ -1,6 +1,6 @@
 import React from 'react';
 import Main from '../main/main.jsx';
-import rentalOffersTypes from '../../types/rental-offers';
+import {rentalOffersTypes} from '../../types/rental-offers';
 
 const headerClickHandler = () => {};
 
