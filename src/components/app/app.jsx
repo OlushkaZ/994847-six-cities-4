@@ -1,18 +1,19 @@
 import React from 'react';
 import Main from '../main/main.jsx';
-import PropTypes from 'prop-types';
+import {rentalOffersTypes} from '../../types/rental-offers';
+
+const headerClickHandler = () => {};
 
 const App = (props) => {
   const {rentalOffersCount, rentalOffersNames} = props;
 
   return (
-    <Main rentalOffersCount={rentalOffersCount} rentalOffersNames={rentalOffersNames} />
+    <Main rentalOffersCount={rentalOffersCount} rentalOffersNames={rentalOffersNames} onHeaderClick={headerClickHandler}
+
+    />
   );
 };
 
-App.propTypes = {
-  rentalOffersCount: PropTypes.number.isRequired,
-  rentalOffersNames: PropTypes.array.isRequired,
-};
+App.propTypes = rentalOffersTypes;
 
 export default App;
