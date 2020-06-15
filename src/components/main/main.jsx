@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import rentalOffersTypes from '../../types/rental-offers';
 
 const Main = (props) => {
-  const {rentalOffersCount, rentalOffersNames} = props;
+  const {rentalOffersCount, rentalOffersNames, onHeaderClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -157,7 +157,7 @@ const Main = (props) => {
                           <span className="visually-hidden">Rating</span>
                         </div>
                       </div>
-                      <h2 className="place-card__name">
+                      <h2 className="place-card__name" onClick={onHeaderClick}>
                         <a href="#">{title}</a>
                       </h2>
                       <p className="place-card__type">Apartment</p>
@@ -176,10 +176,6 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes = {
-  rentalOffersCount: PropTypes.number.isRequired,
-  rentalOffersNames: PropTypes.array.isRequired,
-};
-
+Main.propTypes = rentalOffersTypes;
 
 export default Main;
