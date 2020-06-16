@@ -2,7 +2,7 @@ import React from 'react';
 import Main from '../main/main.jsx';
 import {rentalOffersTypes} from '../../types/rental-offers';
 
-const headerClickHandler = () => {};
+const handleHeaderClick = () => {};
 
 const App = (props) => {
   const {rentalOffersCount, rentalOffersNames, offers} = props;
@@ -12,7 +12,7 @@ const App = (props) => {
       offers={offers}
       rentalOffersCount={rentalOffersCount}
       rentalOffersNames={rentalOffersNames}
-      onHeaderClick={headerClickHandler}
+      onHeaderClick={handleHeaderClick}
     />
   );
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import {rentalOffersTypes} from '../../types/rental-offers';
-import OffersList from '../offer-list/offer-list.jsx';
+import OffersList from '../offers-list/offers-list.jsx';
 
 
 const Main = (props) => {
-  const {rentalOffersCount, offers} = props;
+  const {rentalOffersCount, offers, onHeaderClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -112,7 +112,7 @@ const Main = (props) => {
                   </li>
                 </ul>
               </form>
-              <OffersList offers={offers} />
+              <OffersList offers={offers} onHeaderClick={onHeaderClick} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
