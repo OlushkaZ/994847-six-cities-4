@@ -5,11 +5,14 @@ import {rentalOffersTypes} from '../../types/rental-offers';
 const headerClickHandler = () => {};
 
 const App = (props) => {
-  const {rentalOffersCount, rentalOffersNames} = props;
+  const {rentalOffersCount, rentalOffersNames, offers} = props;
 
   return (
-    <Main rentalOffersCount={rentalOffersCount} rentalOffersNames={rentalOffersNames} onHeaderClick={headerClickHandler}
-
+    <Main
+      offers={offers}
+      rentalOffersCount={rentalOffersCount}
+      rentalOffersNames={rentalOffersNames}
+      onHeaderClick={headerClickHandler}
     />
   );
 };
