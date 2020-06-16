@@ -1,6 +1,6 @@
 import React from 'react';
 import OfferCard from '../offer-card/offer-card.jsx';
-import {offersListTypes} from '../../types/rental-offers';
+import {offersListTypes} from '../../types/rental-offers-types';
 
 class OffersList extends React.PureComponent {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {offerCardTypes} from '../../types/rental-offers';
+import {offerCardTypes} from '../../types/rental-offers-types';
 
 const ACTIVE_CLASS_NAME = `place-card__bookmark-button--active`;
 
