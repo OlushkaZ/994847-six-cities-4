@@ -15,8 +15,7 @@ it(`Should RentalCard handle onMouseEnter event`, () => {
       <OfferCard {...RENTAL_OFFER} onMouseEnter={onMouseEnter} />
   );
 
-  const card = rentalCard.find(`.place-card`);
-  card.props().onMouseEnter();
+  rentalCard.find(`.place-card`).at(0).simulate(`mouseenter`);
 
   expect(onMouseEnter.mock.calls.length).toBe(1);
 });

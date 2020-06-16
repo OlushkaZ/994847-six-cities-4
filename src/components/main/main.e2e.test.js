@@ -25,7 +25,11 @@ it(`Should all the headers be clicked`, () => {
   const offerListWrapper = mainScreen.find(OffersList).shallow();
   offerListWrapper.find(OfferCard)
     .forEach((offerCardWrapper) => {
-      offerCardWrapper.props().onHeaderClick();
+      offerCardWrapper
+        .shallow()
+        .find(`.place-card__name`)
+        .at(0)
+        .simulate(`click`);
     });
 
   expect(handleHeaderClick.mock.calls.length).toBe(RENTAL_OFFERS.length);

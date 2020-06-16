@@ -13,8 +13,8 @@ class OffersList extends React.PureComponent {
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
 
-  handleMouseEnter(id) {
-    this.setState({activeOffer: id});
+  handleMouseEnter(activeOffer) {
+    this.setState({activeOffer});
   }
 
   render() {
