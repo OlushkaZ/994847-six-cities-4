@@ -313,10 +313,11 @@ exports[`Should render Main correctly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[MockFunction]}
+                  onClick={[Function]}
                 >
                   <a
-                    href="#"
+                    href="/offer-details/1"
+                    onClick={[Function]}
                   >
                     Beautiful luxurious apartment at great location
                   </a>
@@ -417,10 +418,11 @@ exports[`Should render Main correctly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[MockFunction]}
+                  onClick={[Function]}
                 >
                   <a
-                    href="#"
+                    href="/offer-details/2"
+                    onClick={[Function]}
                   >
                     Canal View Prinsengracht
                   </a>
@@ -514,10 +516,11 @@ exports[`Should render Main correctly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[MockFunction]}
+                  onClick={[Function]}
                 >
                   <a
-                    href="#"
+                    href="/offer-details/3"
+                    onClick={[Function]}
                   >
                     Nice, cozy, warm big bed apartment
                   </a>
@@ -611,10 +614,11 @@ exports[`Should render Main correctly 1`] = `
                 </div>
                 <h2
                   className="place-card__name"
-                  onClick={[MockFunction]}
+                  onClick={[Function]}
                 >
                   <a
-                    href="#"
+                    href="/offer-details/4"
+                    onClick={[Function]}
                   >
                     Wood and stone place
                   </a>
