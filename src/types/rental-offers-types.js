@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export const rentalOffersTypes = {
   rentalOffersCount: PropTypes.number.isRequired,
   rentalOffersNames: PropTypes.array.isRequired,
-  onHeaderClick: PropTypes.func.isRequired
+  onHeaderClick: PropTypes.func.isRequired,
 };
 
 export const offerCardTypes = {
@@ -15,7 +15,7 @@ export const offerCardTypes = {
   isPremium: PropTypes.bool.isRequired,
   isBookmark: PropTypes.bool.isRequired,
   onMouseEnter: PropTypes.func.isRequired,
-  onHeaderClick: PropTypes.func.isRequired
+  onHeaderClick: PropTypes.func.isRequired,
 };
 
 export const offersListTypes = {
@@ -50,5 +50,6 @@ export const OfferDetailsTypes = {
       hostName: PropTypes.string.isRequired,
       isSuper: PropTypes.bool.isRequired,
     }).isRequired,
+    description: PropTypes.string.isRequired,
   })
 };

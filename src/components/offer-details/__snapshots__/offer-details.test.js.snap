@@ -76,6 +76,13 @@ exports[`Should render Property correctly 1`] = `
         className="property__wrapper"
       >
         <div
+          className="property__mark"
+        >
+          <span>
+            Premium
+          </span>
+        </div>
+        <div
           className="property__name-wrapper"
         >
           <h1
@@ -84,7 +91,7 @@ exports[`Should render Property correctly 1`] = `
             Beautiful luxurious apartment at great location
           </h1>
           <button
-            className="property__bookmark-button button "
+            className="property__bookmark-button button property__bookmark-button--active"
             type="button"
           >
             <svg
@@ -179,7 +186,7 @@ exports[`Should render Property correctly 1`] = `
             <li
               className="property__inside-item"
             >
-              Waching machine
+              Washing machine
             </li>
             <li
               className="property__inside-item"
@@ -200,7 +207,7 @@ exports[`Should render Property correctly 1`] = `
             className="property__host-user user"
           >
             <div
-              className="property__avatar-wrapper user__avatar-wrapper property__avatar-wrapper--pro"
+              className="property__avatar-wrapper user__avatar-wrapper "
             >
               <img
                 alt="Host avatar"
@@ -221,14 +228,10 @@ exports[`Should render Property correctly 1`] = `
           >
             <p
               className="property__text"
-            >
-              A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-            </p>
+            />
             <p
               className="property__text"
-            >
-              An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
-            </p>
+            />
           </div>
         </div>
         <section
