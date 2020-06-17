@@ -1,15 +1,18 @@
 import React from 'react';
 import Main from '../main/main.jsx';
-import {rentalOffersTypes} from '../../types/rental-offers';
+import {rentalOffersTypes} from '../../types/rental-offers-types';
 
-const headerClickHandler = () => {};
+const handleHeaderClick = () => {};
 
 const App = (props) => {
-  const {rentalOffersCount, rentalOffersNames} = props;
+  const {rentalOffersCount, rentalOffersNames, offers} = props;
 
   return (
-    <Main rentalOffersCount={rentalOffersCount} rentalOffersNames={rentalOffersNames} onHeaderClick={headerClickHandler}
-
+    <Main
+      offers={offers}
+      rentalOffersCount={rentalOffersCount}
+      rentalOffersNames={rentalOffersNames}
+      onHeaderClick={handleHeaderClick}
     />
   );
 };
