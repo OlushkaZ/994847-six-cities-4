@@ -1,7 +1,7 @@
 import React from 'react';
+
 import {rentalOffersTypes} from '../../types/rental-offers-types';
 import OffersList from '../offers-list/offers-list.jsx';
-
 
 const Main = (props) => {
   const {rentalOffersCount, offers, onHeaderClick} = props;

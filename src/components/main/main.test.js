@@ -1,8 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Main from './main.jsx';
-import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
 import {BrowserRouter} from 'react-router-dom';
+
+import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
+import Main from './main.jsx';
 
 it(`Should render Main correctly`, () => {
   const tree = renderer

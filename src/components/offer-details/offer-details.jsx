@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import OfferDetailsTypes from '../../types/rental-offers-types';
+
+import {OfferDetailsTypes} from '../../types/rental-offers-types';
 import {OFFER_TYPES_DISPLAY} from '../../mocks/offers';
 
 const MAX_COUNT_IMAGES = 6;

@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app/app.jsx';
+
 import {RENTAL_OFFERS_NAMES} from './mocks/offers';
 import {OFFER_CARDS} from './mocks/offers';
+import App from './components/app/app.jsx';
 
 const RENTAL_OFFERS_COUNT = 4;
 

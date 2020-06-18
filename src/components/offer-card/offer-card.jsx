@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+
 import {offerCardTypes} from '../../types/rental-offers-types';
 
 const ACTIVE_CLASS_NAME = `place-card__bookmark-button--active`;
@@ -17,10 +18,6 @@ const OfferCard = (props) => {
     onMouseEnter,
     onHeaderClick,
   } = props;
-
-  const handleHeaderClick = () => {
-    onHeaderClick(id);
-  };
 
   return (
     <article
@@ -56,7 +53,7 @@ const OfferCard = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={handleHeaderClick}>
+        <h2 className="place-card__name" onClick={() => onHeaderClick(id)}>
           <Link to={{pathname: `/offer-details/${id}`}}>
             {name}
           </Link>

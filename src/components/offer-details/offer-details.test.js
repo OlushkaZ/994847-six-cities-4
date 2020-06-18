@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import OfferDetails from './offer-details';
+
 import {RentalFeature} from '../../mocks/offers';
+import OfferDetails from './offer-details';
 
 const OFFER = {
   id: 1,

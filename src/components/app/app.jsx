@@ -1,8 +1,9 @@
 import React from 'react';
-import Main from '../main/main.jsx';
-import {rentalOffersTypes} from '../../types/rental-offers-types';
-import OfferDetails from '../offer-details/offer-details.jsx';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+
+import {rentalOffersTypes} from '../../types/rental-offers-types';
+import Main from '../main/main.jsx';
+import OfferDetails from '../offer-details/offer-details.jsx';
 
 class App extends React.PureComponent {
   constructor(props) {
