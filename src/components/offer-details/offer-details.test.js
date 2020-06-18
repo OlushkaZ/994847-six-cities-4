@@ -25,10 +25,10 @@ const OFFER = {
   host: {
     hostName: `Ann`,
     photo: `/img/avatar-angelina.jpg`,
-    isSuper: Boolean(Math.round(Math.random())),
+    isSuper: true,
   },
-  isPremium: Boolean(Math.round(Math.random())),
-  isBookmark: Boolean(Math.round(Math.random())),
+  isPremium: true,
+  isBookmark: false,
 };
 
 it(`Should render Property correctly`, () => {
