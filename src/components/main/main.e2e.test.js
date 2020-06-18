@@ -1,10 +1,11 @@
 import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Main from './main.jsx';
+
+import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
 import OffersList from '../offers-list/offers-list.jsx';
 import OfferCard from '../offer-card/offer-card.jsx';
-import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
+import Main from './main.jsx';
 
 Enzyme.configure({
   adapter: new Adapter(),

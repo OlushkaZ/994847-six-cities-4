@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import OffersList from './offers-list';
+
 import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
+import OffersList from './offers-list';
 
 it(`Should render OffersList correctly`, () => {
   const tree = renderer

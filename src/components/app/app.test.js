@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './app.jsx';
+
 import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
+import App from './app.jsx';
 
 it(`Render App`, () => {
   const tree = renderer

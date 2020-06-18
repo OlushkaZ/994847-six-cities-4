@@ -1,21 +1,59 @@
 import React from 'react';
-import Main from '../main/main.jsx';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+
 import {rentalOffersTypes} from '../../types/rental-offers-types';
+import Main from '../main/main.jsx';
+import OfferDetails from '../offer-details/offer-details.jsx';
 
-const handleHeaderClick = () => {};
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-const App = (props) => {
-  const {rentalOffersCount, rentalOffersNames, offers} = props;
+    this.state = {
+      id: -1,
+    };
+    this.handleHeaderClick = this.handleHeaderClick.bind(this);
+  }
 
-  return (
-    <Main
-      offers={offers}
-      rentalOffersCount={rentalOffersCount}
-      rentalOffersNames={rentalOffersNames}
-      onHeaderClick={handleHeaderClick}
-    />
-  );
-};
+  handleHeaderClick(id) {
+    this.setState({id});
+  }
+
+  _renderOfferDetails(offerId) {
+    const {offers} = this.props;
+    const offer = offers.find(({id}) => id === Number(offerId));
+
+    return offer
+      ? <OfferDetails offer={offer} />
+      : <Redirect to="/" />;
+  }
+
+  render() {
+    const {
+      rentalOffersCount,
+      rentalOffersNames,
+      offers
+    } = this.props;
+
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Main
+              offers={offers}
+              rentalOffersCount={rentalOffersCount}
+              rentalOffersNames={rentalOffersNames}
+              onHeaderClick={this.handleHeaderClick}
+            />
+          </Route>
+          <Route exact path="/offer-details/:id">
+            {({match}) => this._renderOfferDetails(match.params.id)}
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
 
 App.propTypes = rentalOffersTypes;
 

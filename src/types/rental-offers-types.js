@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export const rentalOffersTypes = {
   rentalOffersCount: PropTypes.number.isRequired,
   rentalOffersNames: PropTypes.array.isRequired,
-  onHeaderClick: PropTypes.func.isRequired
+  onHeaderClick: PropTypes.func.isRequired,
 };
 
 export const offerCardTypes = {
@@ -15,7 +15,7 @@ export const offerCardTypes = {
   isPremium: PropTypes.bool.isRequired,
   isBookmark: PropTypes.bool.isRequired,
   onMouseEnter: PropTypes.func.isRequired,
-  onHeaderClick: PropTypes.func.isRequired
+  onHeaderClick: PropTypes.func.isRequired,
 };
 
 export const offersListTypes = {
@@ -31,4 +31,25 @@ export const offersListTypes = {
       })
   ).isRequired,
   onHeaderClick: PropTypes.func.isRequired,
+};
+
+export const OfferDetailsTypes = {
+  offer: PropTypes.shape({
+    price: PropTypes.number.isRequired,
+    imgDetails: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    name: PropTypes.string.isRequired,
+    ratingDetails: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+    roomCountDetails: PropTypes.number.isRequired,
+    maxGuestsDetails: PropTypes.number.isRequired,
+    featuresDetails: PropTypes.array.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+    isBookmark: PropTypes.bool.isRequired,
+    host: PropTypes.shape({
+      photo: PropTypes.string.isRequired,
+      hostName: PropTypes.string.isRequired,
+      isSuper: PropTypes.bool.isRequired,
+    }).isRequired,
+    description: PropTypes.string.isRequired,
+  })
 };

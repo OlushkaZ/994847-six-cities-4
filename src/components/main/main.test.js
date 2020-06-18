@@ -1,21 +1,22 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Main from './main.jsx';
+import {BrowserRouter} from 'react-router-dom';
+
 import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
+import Main from './main.jsx';
 
 it(`Should render Main correctly`, () => {
   const tree = renderer
-    .create(
+    .create((
+      <BrowserRouter>
         <Main
           offers={RENTAL_OFFERS}
           rentalOffersCount={RENTAL_OFFERS.length}
           rentalOffersNames={RENTAL_OFFERS}
           onHeaderClick={jest.fn()}
         />
-    )
-    .toJSON();
+      </BrowserRouter>
+    )).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
-
-
