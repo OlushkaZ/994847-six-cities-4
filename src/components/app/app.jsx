@@ -5,6 +5,9 @@ import {rentalOffersTypes} from '../../types/rental-offers-types';
 import Main from '../main/main.jsx';
 import OfferDetails from '../offer-details/offer-details.jsx';
 
+const MAX_REVIEWS_COUNT = 10;
+const MAX_OFFERS_NEARBY_COUNT = 3;
+
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -16,15 +19,33 @@ class App extends React.PureComponent {
   }
 
   handleHeaderClick(id) {
-    this.setState({id});
+    this.setState({id}, () => {
+      window.scrollTo({
+        top: 0,
+        behavior: `smooth`,
+      });
+    });
   }
 
   _renderOfferDetails(offerId) {
-    const {offers} = this.props;
+    const {offers, reviews} = this.props;
     const offer = offers.find(({id}) => id === Number(offerId));
 
+    const sortedReviews = reviews
+      .slice()
+      .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+      .slice(0, MAX_REVIEWS_COUNT);
+
     return offer
-      ? <OfferDetails offer={offer} />
+      ? (
+        <OfferDetails
+          offers={offers.filter(({id}) => id !== offer.id).slice(0, MAX_OFFERS_NEARBY_COUNT)}
+          reviewsTotalCount={reviews.length}
+          reviews={sortedReviews}
+          offer={offer}
+          onHeaderClick={this.handleHeaderClick}
+        />
+      )
       : <Redirect to="/" />;
   }
 

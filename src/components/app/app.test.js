@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
+
 import App from './app.jsx';
 
 it(`Render App`, () => {

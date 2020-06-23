@@ -15,7 +15,7 @@ class Map extends PureComponent {
       return;
     }
 
-    const {offers} = this.props;
+    const {offers, activeOffer} = this.props;
 
     const city = [52.38333, 4.9];
     const zoom = 12;
@@ -45,6 +45,16 @@ class Map extends PureComponent {
         .marker(offer.location.cityCoordinates, {icon})
         .addTo(map);
     });
+
+    if (activeOffer) {
+      const iconActive = leaflet.icon({
+        iconUrl: `/img/pin-active.svg`,
+        iconSize: [30, 30]
+      });
+      leaflet
+        .marker(activeOffer.location.cityCoordinates, {icon: iconActive})
+        .addTo(map);
+    }
   }
 
   render() {

@@ -30,10 +30,18 @@ const OFFER = {
   },
   isPremium: true,
   isBookmark: false,
+  description: ``,
 };
 
 it(`Should render Property correctly`, () => {
-  const tree = renderer.create(<OfferDetails offer={OFFER} />).toJSON();
+  const tree = renderer.create((
+    <OfferDetails
+      reviewsTotalCount={0}
+      offer={OFFER}
+      offers={[]}
+      reviews={[]}
+    />
+  )).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

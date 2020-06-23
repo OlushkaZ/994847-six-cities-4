@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render RentalCard correctly 1`] = `
+<li
+  className="reviews__item"
+>
+  <div
+    className="reviews__user user"
+  >
+    <div
+      className="reviews__avatar-wrapper user__avatar-wrapper"
+    >
+      <img
+        alt="Reviews avatar"
+        className="reviews__avatar user__avatar"
+        height="54"
+        src="/img/avatar.svg"
+        width="54"
+      />
+    </div>
+    <span
+      className="reviews__user-name"
+    >
+      Michael
+    </span>
+  </div>
+  <div
+    className="reviews__info"
+  >
+    <div
+      className="reviews__rating rating"
+    >
+      <div
+        className="reviews__stars rating__stars"
+      >
+        <span
+          style={
+            Object {
+              "width": 3,
+            }
+          }
+        />
+        <span
+          className="visually-hidden"
+        >
+          Rating
+        </span>
+      </div>
+    </div>
+    <p
+      className="reviews__text"
+    >
+      The proximity to the airport is great, very friendly owner, clean and tidy, parking right outside the door - a very good choice with an early onward journey to the airport with excellent value for money.
+    </p>
+    <time
+      className="reviews__time"
+      dateTime="2007-05-01"
+    >
+      May 1, 2007
+    </time>
+  </div>
+</li>
+`;
