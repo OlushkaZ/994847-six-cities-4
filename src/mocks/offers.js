@@ -26,6 +26,9 @@ export const OFFER_TYPES_DISPLAY = {
 
 export const OFFER_CARDS = [
   {
+    location: {
+      cityCoordinates: [52.3909553943508, 4.85309666406198],
+    },
     id: 1,
     img: `/img/apartment-01.jpg`,
     imgDetails: [
@@ -56,6 +59,9 @@ export const OFFER_CARDS = [
 
   {
     id: 2,
+    location: {
+      cityCoordinates: [52.369553943508, 4.85309666406198],
+    },
     img: `/img/apartment-02.jpg`,
     imgDetails: [
       `/img/room.jpg`,
@@ -85,6 +91,9 @@ export const OFFER_CARDS = [
 
   {
     id: 3,
+    location: {
+      cityCoordinates: [52.3909553943508, 4.929309666406198],
+    },
     img: `/img/apartment-03.jpg`,
     imgDetails: [
       `/img/apartment-01.jpg`,
@@ -114,6 +123,9 @@ export const OFFER_CARDS = [
 
   {
     id: 4,
+    location: {
+      cityCoordinates: [52.3809553943508, 4.939309666406198],
+    },
     img: `img/apartment-01.jpg`,
     imgDetails: [
       `/img/apartment-03.jpg`,

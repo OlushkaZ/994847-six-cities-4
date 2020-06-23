@@ -33,6 +33,16 @@ export const offersListTypes = {
   onHeaderClick: PropTypes.func.isRequired,
 };
 
+export const mapTypes = {
+  offers: PropTypes.arrayOf(
+      PropTypes.shape({
+        location: PropTypes.shape({
+          cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+        })
+      })
+  ).isRequired,
+};
+
 export const OfferDetailsTypes = {
   offer: PropTypes.shape({
     price: PropTypes.number.isRequired,

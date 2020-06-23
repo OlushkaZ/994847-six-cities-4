@@ -1,6 +1,9 @@
 export const RENTAL_OFFERS = [
   {
     id: 1,
+    location: {
+      cityCoordinates: [52.3909553943508, 4.85309666406198],
+    },
     img: `img/apartment-01.jpg`,
     price: 100,
     rating: `95%`,
@@ -12,6 +15,9 @@ export const RENTAL_OFFERS = [
 
   {
     id: 2,
+    location: {
+      cityCoordinates: [52.3909553943508, 4.85309666406198],
+    },
     img: `img/apartment-02.jpg`,
     price: 193,
     rating: `60%`,
@@ -23,6 +29,9 @@ export const RENTAL_OFFERS = [
 
   {
     id: 3,
+    location: {
+      cityCoordinates: [52.3909553943508, 4.85309666406198],
+    },
     img: `img/apartment-03.jpg`,
     price: 250,
     rating: `16%`,
@@ -34,6 +43,9 @@ export const RENTAL_OFFERS = [
 
   {
     id: 4,
+    location: {
+      cityCoordinates: [52.3909553943508, 4.85309666406198],
+    },
     img: `img/apartment-01.jpg`,
     price: 50,
     rating: `75%`,

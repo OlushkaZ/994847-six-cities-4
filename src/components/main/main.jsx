@@ -2,6 +2,7 @@ import React from 'react';
 
 import {rentalOffersTypes} from '../../types/rental-offers-types';
 import OffersList from '../offers-list/offers-list.jsx';
+import Map from '../map/map.jsx';
 
 const Main = (props) => {
   const {rentalOffersCount, offers, onHeaderClick} = props;
@@ -115,7 +116,7 @@ const Main = (props) => {
               <OffersList offers={offers} onHeaderClick={onHeaderClick} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map offers={offers} />
             </div>
           </div>
         </div>
