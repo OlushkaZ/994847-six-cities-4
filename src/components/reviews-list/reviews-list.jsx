@@ -1,6 +1,7 @@
 import React from 'react';
-import ReviewCard from '../review-card/review-card';
+
 import {reviewsListTypes} from '../../types/review-types';
+import ReviewCard from '../review-card/review-card';
 
 const ReviewsList = ({reviews, reviewsTotalCount}) => {
   return (

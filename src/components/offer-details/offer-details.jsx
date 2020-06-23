@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ReviewsList from '../reviews-list/reviews-list';
-import OfferCard from '../offer-card/offer-card';
-import Map from '../map/map';
 import {OfferDetailsTypes, mapTypes} from '../../types/rental-offers-types';
 import {reviewsListTypes} from '../../types/review-types';
 import {OFFER_TYPES_DISPLAY} from '../../mocks/offers';
+import ReviewsList from '../reviews-list/reviews-list';
+import OfferCard from '../offer-card/offer-card';
+import Map from '../map/map';
 
 const MAX_COUNT_IMAGES = 6;
 const ACTIVE_CLASS_NAME = `property__bookmark-button--active`;
