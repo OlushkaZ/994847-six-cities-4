@@ -126,7 +126,7 @@ export const OFFER_CARDS = [
     location: {
       cityCoordinates: [52.3809553943508, 4.939309666406198],
     },
-    img: `img/apartment-01.jpg`,
+    img: `/img/apartment-01.jpg`,
     imgDetails: [
       `/img/apartment-03.jpg`,
       `/img/room.jpg`,

@@ -1,0 +1,359 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render RentalCard correctly 1`] = `
+<section
+  className="property__reviews reviews"
+>
+  <h2
+    className="reviews__title"
+  >
+    Reviews · 
+    <span
+      className="reviews__amount"
+    >
+      3
+    </span>
+  </h2>
+  <ul
+    className="reviews__list"
+  >
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height="54"
+            src="/img/avatar.svg"
+            width="54"
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          Michael
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": 3,
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          The proximity to the airport is great, very friendly owner, clean and tidy, parking right outside the door - a very good choice with an early onward journey to the airport with excellent value for money.
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="2007-05-01"
+        >
+          May 1, 2007
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height="54"
+            src="/img/avatar-max.jpg"
+            width="54"
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          Gary
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": 2,
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          Left my sweater in the hotel. Mr. Herbert, sent home the sweater for free. Great service.
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="2008-02-01"
+        >
+          February 1, 2008
+        </time>
+      </div>
+    </li>
+    <li
+      className="reviews__item"
+    >
+      <div
+        className="reviews__user user"
+      >
+        <div
+          className="reviews__avatar-wrapper user__avatar-wrapper"
+        >
+          <img
+            alt="Reviews avatar"
+            className="reviews__avatar user__avatar"
+            height="54"
+            src="/img/avatar-angelina.jpg"
+            width="54"
+          />
+        </div>
+        <span
+          className="reviews__user-name"
+        >
+          Carrie
+        </span>
+      </div>
+      <div
+        className="reviews__info"
+      >
+        <div
+          className="reviews__rating rating"
+        >
+          <div
+            className="reviews__stars rating__stars"
+          >
+            <span
+              style={
+                Object {
+                  "width": 5,
+                }
+              }
+            />
+            <span
+              className="visually-hidden"
+            >
+              Rating
+            </span>
+          </div>
+        </div>
+        <p
+          className="reviews__text"
+        >
+          We felt very welcome as guests.The room, located on the noisy thoroughfare, was absolutely soundproofed.We slept very well in the beds.Parking in front of the hotel, perfect!
+        </p>
+        <time
+          className="reviews__time"
+          dateTime="2003-04-01"
+        >
+          April 1, 2003
+        </time>
+      </div>
+    </li>
+  </ul>
+  <form
+    action="#"
+    className="reviews__form form"
+    method="post"
+  >
+    <label
+      className="reviews__label form__label"
+      htmlFor="review"
+    >
+      Your review
+    </label>
+    <div
+      className="reviews__rating-form form__rating"
+    >
+      <input
+        className="form__rating-input visually-hidden"
+        id="5-stars"
+        name="rating"
+        type="radio"
+        value="5"
+      />
+      <label
+        className="reviews__rating-label form__rating-label"
+        htmlFor="5-stars"
+        title="perfect"
+      >
+        <svg
+          className="form__star-image"
+          height="33"
+          width="37"
+        >
+          <use
+            xlinkHref="#icon-star"
+          />
+        </svg>
+      </label>
+      <input
+        className="form__rating-input visually-hidden"
+        id="4-stars"
+        name="rating"
+        type="radio"
+        value="4"
+      />
+      <label
+        className="reviews__rating-label form__rating-label"
+        htmlFor="4-stars"
+        title="good"
+      >
+        <svg
+          className="form__star-image"
+          height="33"
+          width="37"
+        >
+          <use
+            xlinkHref="#icon-star"
+          />
+        </svg>
+      </label>
+      <input
+        className="form__rating-input visually-hidden"
+        id="3-stars"
+        name="rating"
+        type="radio"
+        value="3"
+      />
+      <label
+        className="reviews__rating-label form__rating-label"
+        htmlFor="3-stars"
+        title="not bad"
+      >
+        <svg
+          className="form__star-image"
+          height="33"
+          width="37"
+        >
+          <use
+            xlinkHref="#icon-star"
+          />
+        </svg>
+      </label>
+      <input
+        className="form__rating-input visually-hidden"
+        id="2-stars"
+        name="rating"
+        type="radio"
+        value="2"
+      />
+      <label
+        className="reviews__rating-label form__rating-label"
+        htmlFor="2-stars"
+        title="badly"
+      >
+        <svg
+          className="form__star-image"
+          height="33"
+          width="37"
+        >
+          <use
+            xlinkHref="#icon-star"
+          />
+        </svg>
+      </label>
+      <input
+        className="form__rating-input visually-hidden"
+        id="1-star"
+        name="rating"
+        type="radio"
+        value="1"
+      />
+      <label
+        className="reviews__rating-label form__rating-label"
+        htmlFor="1-star"
+        title="terribly"
+      >
+        <svg
+          className="form__star-image"
+          height="33"
+          width="37"
+        >
+          <use
+            xlinkHref="#icon-star"
+          />
+        </svg>
+      </label>
+    </div>
+    <textarea
+      className="reviews__textarea form__textarea"
+      id="review"
+      name="review"
+      placeholder="Tell how was your stay, what you like and what can be improved"
+    />
+    <div
+      className="reviews__button-wrapper"
+    >
+      <p
+        className="reviews__help"
+      >
+        To submit review please make sure to set 
+        <span
+          className="reviews__star"
+        >
+          rating
+        </span>
+         and describe your stay with at least 
+        <b
+          className="reviews__text-amount"
+        >
+          50 characters
+        </b>
+        .
+      </p>
+      <button
+        className="reviews__submit form__submit button"
+        disabled=""
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</section>
+`;

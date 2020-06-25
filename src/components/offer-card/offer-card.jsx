@@ -22,7 +22,7 @@ const OfferCard = (props) => {
   return (
     <article
       className="cities__place-card place-card"
-      onMouseEnter={() => onMouseEnter(id)}
+      onMouseEnter={() => onMouseEnter && onMouseEnter(id)}
     >
       {isPremium && (
         <div className="place-card__mark">
@@ -53,7 +53,7 @@ const OfferCard = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={() => onHeaderClick(id)}>
+        <h2 className="place-card__name" onClick={() => onHeaderClick && onHeaderClick(id)}>
           <Link to={{pathname: `/offer-details/${id}`}}>
             {name}
           </Link>
@@ -67,4 +67,3 @@ const OfferCard = (props) => {
 OfferCard.propTypes = offerCardTypes;
 
 export default OfferCard;
-

@@ -14,8 +14,8 @@ export const offerCardTypes = {
   type: PropTypes.string.isRequired,
   isPremium: PropTypes.bool.isRequired,
   isBookmark: PropTypes.bool.isRequired,
-  onMouseEnter: PropTypes.func.isRequired,
-  onHeaderClick: PropTypes.func.isRequired,
+  onMouseEnter: PropTypes.func,
+  onHeaderClick: PropTypes.func,
 };
 
 export const offersListTypes = {
@@ -34,6 +34,11 @@ export const offersListTypes = {
 };
 
 export const mapTypes = {
+  activeOffer: PropTypes.shape({
+    location: PropTypes.shape({
+      cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    })
+  }),
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         location: PropTypes.shape({
