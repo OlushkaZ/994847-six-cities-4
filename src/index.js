@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 
-import {RENTAL_OFFERS_NAMES} from './mocks/offers';
 import {REVIEWS} from './mocks/reviews';
 import {allOffers} from './mocks/all-offers';
 import App from './components/app/app.jsx';
@@ -34,7 +33,6 @@ ReactDOM.render(
       <App
         reviews={REVIEWS}
         rentalOffersCount={RENTAL_OFFERS_COUNT}
-        rentalOffersNames={RENTAL_OFFERS_NAMES}
         onHeaderClick={handleHeaderClick}
       />
     </Provider>,

@@ -1,6 +1,4 @@
-
-import {RentalFeature} from '../mocks/offers';
-import {City} from '../mocks/offers';
+import {RentalFeature, City} from '../constants';
 
 export const allOffers = [
   {

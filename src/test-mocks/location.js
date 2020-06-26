@@ -1,4 +1,4 @@
-import {City} from '../mocks/offers';
+import {City} from '../constants';
 
 export const location = {
   city: City.PARIS,

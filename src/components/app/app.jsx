@@ -33,7 +33,6 @@ class App extends React.PureComponent {
 
   render() {
     const {
-      rentalOffersNames,
       offers,
       currentLocation
     } = this.props;
@@ -44,7 +43,6 @@ class App extends React.PureComponent {
           <Route exact path="/">
             <Main
               offers={offers}
-              rentalOffersNames={rentalOffersNames}
               currentLocation={currentLocation}
             />
           </Route>

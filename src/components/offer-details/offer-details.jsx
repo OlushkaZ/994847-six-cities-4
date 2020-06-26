@@ -2,7 +2,7 @@ import React from 'react';
 
 import {offerShape, mapTypes} from '../../types/rental-offers-types';
 import {reviewsListTypes} from '../../types/review-types';
-import {OFFER_TYPES_DISPLAY} from '../../mocks/offers';
+import {OFFER_TYPES_DISPLAY} from '../../constants';
 import ReviewsList from '../reviews-list/reviews-list';
 import OfferCard from '../offer-card/offer-card';
 import Map from '../map/map';
