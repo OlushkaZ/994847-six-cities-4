@@ -1,5 +1,6 @@
 import React, {PureComponent, createRef} from 'react';
 import leaflet from 'leaflet';
+import {connect} from "react-redux";
 
 import {mapTypes} from '../../types/rental-offers-types';
 
@@ -8,16 +9,27 @@ class Map extends PureComponent {
     super(props);
 
     this.ref = createRef();
+    this._map = null;
+  }
+
+  componentDidUpdate() {
+    this._renderMap();
   }
 
   componentDidMount() {
+    this._renderMap();
+  }
+
+  _renderMap() {
     if (!this.ref.current) {
       return;
     }
 
-    const {offers, activeOffer} = this.props;
+    if (this._map) {
+      this._map.remove();
+    }
 
-    const city = [52.38333, 4.9];
+    const {offers, activeOffer, currentLocation} = this.props;
     const zoom = 12;
 
     const icon = leaflet.icon({
@@ -25,25 +37,25 @@ class Map extends PureComponent {
       iconSize: [30, 30]
     });
 
-    const map = leaflet.map(this.ref.current, {
-      center: city,
+    this._map = leaflet.map(this.ref.current, {
+      center: currentLocation.cityCoordinates,
       zoom,
       zoomControl: false,
       marker: true
     });
-    map.setView(city, zoom);
+    this._map.setView(currentLocation.cityCoordinates, zoom);
 
     leaflet.tileLayer(
         `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`,
         {
           attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`,
         })
-        .addTo(map);
+        .addTo(this._map);
 
     offers.forEach((offer) => {
       leaflet
-        .marker(offer.location.cityCoordinates, {icon})
-        .addTo(map);
+        .marker(offer.coordinates, {icon})
+        .addTo(this._map);
     });
 
     if (activeOffer) {
@@ -52,8 +64,8 @@ class Map extends PureComponent {
         iconSize: [30, 30]
       });
       leaflet
-        .marker(activeOffer.location.cityCoordinates, {icon: iconActive})
-        .addTo(map);
+        .marker(activeOffer.coordinates, {icon: iconActive})
+        .addTo(this._map);
     }
   }
 
@@ -69,5 +81,10 @@ class Map extends PureComponent {
 
 Map.propTypes = mapTypes;
 
-export default Map;
+const mapStateToProps = (state) => ({
+  currentLocation: state.currentLocation,
+  offers: state.currentOffers,
+});
 
+export {Map};
+export default connect(mapStateToProps)(Map);

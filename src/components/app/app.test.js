@@ -1,18 +1,26 @@
 import React from 'react';
+import {createStore} from 'redux';
+import {Provider} from "react-redux";
 import renderer from 'react-test-renderer';
 
-import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
-import App from './app.jsx';
+import {reducer} from '../../reducer';
+import {allOffers} from '../../test-mocks/all-offers';
+import {location} from '../../test-mocks/location';
+import {App} from './app.jsx';
+
+const store = createStore(
+    reducer
+);
 
 it(`Render App`, () => {
   const tree = renderer
     .create((
-      <App
-        offers={RENTAL_OFFERS}
-        rentalOffersCount={RENTAL_OFFERS.length}
-        rentalOffersNames={RENTAL_OFFERS}
-        onHeaderClick={jest.fn()}
-      />
+      <Provider store={store}>
+        <App
+          currentLocation={location}
+          offers={allOffers[0].offers}
+        />
+      </Provider>
     ))
     .toJSON();
 

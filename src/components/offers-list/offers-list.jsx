@@ -20,7 +20,6 @@ class OffersList extends React.PureComponent {
 
   render() {
     const {
-      onHeaderClick,
       offers = []
     } = this.props;
 
@@ -48,7 +47,6 @@ class OffersList extends React.PureComponent {
                 isPremium={isPremium}
                 isBookmark={isBookmark}
                 onMouseEnter={this.handleMouseEnter}
-                onHeaderClick={onHeaderClick}
               />
             )
         )}

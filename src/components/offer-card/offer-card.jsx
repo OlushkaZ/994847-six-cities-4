@@ -16,7 +16,6 @@ const OfferCard = (props) => {
     isPremium,
     isBookmark,
     onMouseEnter,
-    onHeaderClick,
   } = props;
 
   return (
@@ -53,7 +52,7 @@ const OfferCard = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onClick={() => onHeaderClick && onHeaderClick(id)}>
+        <h2 className="place-card__name">
           <Link to={{pathname: `/offer-details/${id}`}}>
             {name}
           </Link>

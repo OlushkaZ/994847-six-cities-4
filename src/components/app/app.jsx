@@ -1,7 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import {connect} from "react-redux";
 
-import {rentalOffersTypes} from '../../types/rental-offers-types';
+import {appTypes} from '../../types/rental-offers-types';
 import Main from '../main/main.jsx';
 import OfferDetails from '../offer-details/offer-details.jsx';
 
@@ -9,24 +10,6 @@ const MAX_REVIEWS_COUNT = 10;
 const MAX_OFFERS_NEARBY_COUNT = 3;
 
 class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      id: -1,
-    };
-    this.handleHeaderClick = this.handleHeaderClick.bind(this);
-  }
-
-  handleHeaderClick(id) {
-    this.setState({id}, () => {
-      window.scrollTo({
-        top: 0,
-        behavior: `smooth`,
-      });
-    });
-  }
-
   _renderOfferDetails(offerId) {
     const {offers, reviews} = this.props;
     const offer = offers.find(({id}) => id === Number(offerId));
@@ -43,7 +26,6 @@ class App extends React.PureComponent {
           reviewsTotalCount={reviews.length}
           reviews={sortedReviews}
           offer={offer}
-          onHeaderClick={this.handleHeaderClick}
         />
       )
       : <Redirect to="/" />;
@@ -51,9 +33,9 @@ class App extends React.PureComponent {
 
   render() {
     const {
-      rentalOffersCount,
       rentalOffersNames,
-      offers
+      offers,
+      currentLocation
     } = this.props;
 
     return (
@@ -62,9 +44,8 @@ class App extends React.PureComponent {
           <Route exact path="/">
             <Main
               offers={offers}
-              rentalOffersCount={rentalOffersCount}
               rentalOffersNames={rentalOffersNames}
-              onHeaderClick={this.handleHeaderClick}
+              currentLocation={currentLocation}
             />
           </Route>
           <Route exact path="/offer-details/:id">
@@ -76,6 +57,12 @@ class App extends React.PureComponent {
   }
 }
 
-App.propTypes = rentalOffersTypes;
+App.propTypes = appTypes;
 
-export default App;
+const mapStateToProps = (state) => ({
+  currentLocation: state.currentLocation,
+  offers: state.currentOffers,
+});
+
+export {App};
+export default connect(mapStateToProps)(App);

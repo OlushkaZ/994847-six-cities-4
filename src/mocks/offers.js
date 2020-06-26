@@ -6,6 +6,17 @@ export const RENTAL_OFFERS_NAMES = [
   `Amazing apartment for your cat`
 ];
 
+export const City = {
+  PARIS: `Paris`,
+  COLOGNE: `Cologne`,
+  BRUSSELS: `Brussels`,
+  AMSTERDAM: `Amsterdam`,
+  HAMBURG: `Hamburg`,
+  DUSSELDORF: `Dusseldorf`,
+};
+
+export const cities = Object.values(City);
+
 export const RentalFeature = {
   WIFI: `Wi-Fi`,
   PARKING: `Parking`,

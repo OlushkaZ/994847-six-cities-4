@@ -1,12 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {RENTAL_OFFERS} from '../../test-mocks/rental-offers';
-import Map from './map.jsx';
+import {allOffers} from '../../test-mocks/all-offers';
+import {location} from '../../test-mocks/location';
+import {Map} from './map.jsx';
 
 it(`Should render Map correctly`, () => {
   const tree = renderer
-    .create(<Map offers={RENTAL_OFFERS} />)
+    .create((
+      <Map
+        currentLocation={location}
+        offers={allOffers[0].offers}
+      />
+    ))
     .toJSON();
 
   expect(tree).toMatchSnapshot();
