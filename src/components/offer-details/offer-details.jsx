@@ -125,8 +125,7 @@ const OfferDetails = (props) => {
         </div>
         <section className="property__map map" style={{display: `flex`}}>
           <Map
-            activeOffer={offer}
-            offers={offers}
+            activeOffer={offer.id}
           />
         </section>
       </section>

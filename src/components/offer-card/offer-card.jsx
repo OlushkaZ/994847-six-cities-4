@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from "react-redux";
 
+import {ActionCreator} from "../../reducer";
 import {offerCardTypes} from '../../types/rental-offers-types';
 
 const ACTIVE_CLASS_NAME = `place-card__bookmark-button--active`;
@@ -16,12 +18,14 @@ const OfferCard = (props) => {
     isPremium,
     isBookmark,
     onMouseEnter,
+    onMouseLeave,
   } = props;
 
   return (
     <article
       className="cities__place-card place-card"
-      onMouseEnter={() => onMouseEnter && onMouseEnter(id)}
+      onMouseEnter={() => onMouseEnter(id)}
+      onMouseLeave={onMouseLeave}
     >
       {isPremium && (
         <div className="place-card__mark">
@@ -65,4 +69,15 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = offerCardTypes;
 
-export default OfferCard;
+const mapDispatchToProps = (dispatch) => ({
+  onMouseEnter(offer) {
+    dispatch(ActionCreator.activeOfferLocation(offer));
+  },
+  onMouseLeave() {
+    dispatch(ActionCreator.activeOfferLocation(null));
+  }
+});
+
+export {OfferCard};
+export default connect(null, mapDispatchToProps)(OfferCard);
+

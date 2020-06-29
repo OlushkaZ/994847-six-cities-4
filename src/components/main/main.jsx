@@ -2,6 +2,7 @@ import React from 'react';
 
 import {mainTypes} from '../../types/rental-offers-types';
 import OffersList from '../offers-list/offers-list.jsx';
+import Sorting from '../sorting/sorting.jsx';
 import Map from '../map/map.jsx';
 import CitiesList from '../cities-list/cities-list';
 
@@ -58,32 +59,7 @@ const Main = (props) => {
                   : `No places to stay available`
                 }
               </b>
-              <form className="places__sorting" action="#" method="get">
-                <span className="places__sorting-caption">Sort by</span>
-                <span className="places__sorting-type" tabIndex="0">
-                  Popular
-                  <svg className="places__sorting-arrow" width="7" height="4">
-                    <use xlinkHref="#icon-arrow-select"></use>
-                  </svg>
-                </span>
-                <ul className="places__options places__options--custom places__options--opened">
-                  <li
-                    className="places__option places__option--active"
-                    tabIndex="0"
-                  >
-                    Popular
-                  </li>
-                  <li className="places__option" tabIndex="0">
-                    Price: low to high
-                  </li>
-                  <li className="places__option" tabIndex="0">
-                    Price: high to low
-                  </li>
-                  <li className="places__option" tabIndex="0">
-                    Top rated first
-                  </li>
-                </ul>
-              </form>
+              <Sorting />
               <OffersList offers={offers} />
             </section>
             <div className="cities__right-section">

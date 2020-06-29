@@ -9,11 +9,15 @@ import App from './components/app/app.jsx';
 
 import {getOffersInCity} from './utils';
 import {reducer} from "./reducer";
+import {SortType} from './constants';
 
 const initialState = {
+  showSortMenu: false,
+  activeOfferLocation: null,
   currentLocation: allOffers[0].location,
   allOffers,
   currentOffers: getOffersInCity(allOffers[0].location.city, allOffers),
+  currentSortType: SortType.POPULAR,
 };
 
 const RENTAL_OFFERS_COUNT = 4;
