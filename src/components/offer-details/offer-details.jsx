@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import {OfferDetailsTypes, mapTypes} from '../../types/rental-offers-types';
+import {offerShape, mapTypes} from '../../types/rental-offers-types';
 import {reviewsListTypes} from '../../types/review-types';
-import {OFFER_TYPES_DISPLAY} from '../../mocks/offers';
+import {OFFER_TYPES_DISPLAY} from '../../constants';
 import ReviewsList from '../reviews-list/reviews-list';
 import OfferCard from '../offer-card/offer-card';
 import Map from '../map/map';
 
 const MAX_COUNT_IMAGES = 6;
 const ACTIVE_CLASS_NAME = `property__bookmark-button--active`;
+const onMouseEnter = () => {};
 
 const OfferDetails = (props) => {
   const {
@@ -17,7 +17,6 @@ const OfferDetails = (props) => {
     reviewsTotalCount,
     offers,
     offer,
-    onHeaderClick,
   } = props;
 
   const {
@@ -136,7 +135,7 @@ const OfferDetails = (props) => {
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
             {offers.map((itemOffer, index) => (
-              <OfferCard key={index} {...itemOffer} onHeaderClick={onHeaderClick} />
+              <OfferCard key={index} {...itemOffer} onMouseEnter={onMouseEnter} />
             ))}
           </div>
         </section>
@@ -146,11 +145,10 @@ const OfferDetails = (props) => {
 };
 
 OfferDetails.propTypes = {
-  offer: OfferDetailsTypes.offer,
+  offer: offerShape.isRequired,
   reviews: reviewsListTypes.reviews,
   reviewsTotalCount: reviewsListTypes.reviewsTotalCount,
-  offers: mapTypes.offers,
-  onHeaderClick: PropTypes.func
+  offers: mapTypes.offers
 };
 
 export default OfferDetails;

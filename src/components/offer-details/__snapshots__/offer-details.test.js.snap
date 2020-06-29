@@ -58,15 +58,6 @@ exports[`Should render Property correctly 1`] = `
             src="/img/apartment-small-04.jpg"
           />
         </div>
-        <div
-          className="property__image-wrapper"
-        >
-          <img
-            alt="Photo studio"
-            className="property__image"
-            src="/img/room.jpg"
-          />
-        </div>
       </div>
     </div>
     <div
@@ -88,10 +79,10 @@ exports[`Should render Property correctly 1`] = `
           <h1
             className="property__name"
           >
-            Beautiful luxurious apartment at great location
+            Beautiful & luxurious apartment at great location
           </h1>
           <button
-            className="property__bookmark-button button "
+            className="property__bookmark-button button property__bookmark-button--active"
             type="button"
           >
             <svg
@@ -131,9 +122,7 @@ exports[`Should render Property correctly 1`] = `
           </div>
           <span
             className="property__rating-value rating__value"
-          >
-            2.3
-          </span>
+          />
         </div>
         <ul
           className="property__features"
@@ -141,19 +130,19 @@ exports[`Should render Property correctly 1`] = `
           <li
             className="property__feature property__feature--entire"
           >
-            House
+            Apartment
           </li>
           <li
             className="property__feature property__feature--bedrooms"
           >
-            10
+            3
              Bedrooms
           </li>
           <li
             className="property__feature property__feature--adults"
           >
             Max 
-            10
+            3
              adults
           </li>
         </ul>
@@ -164,7 +153,7 @@ exports[`Should render Property correctly 1`] = `
             className="property__price-value"
           >
             €
-            116
+            120
           </b>
           <span
             className="property__price-text"
@@ -186,12 +175,12 @@ exports[`Should render Property correctly 1`] = `
             <li
               className="property__inside-item"
             >
-              Washing machine
+              Dryer
             </li>
             <li
               className="property__inside-item"
             >
-              Kitchen
+              Washing machine
             </li>
           </ul>
         </div>
@@ -220,7 +209,7 @@ exports[`Should render Property correctly 1`] = `
             <span
               className="property__user-name"
             >
-              Ann
+              Angelina
             </span>
           </div>
           <div
@@ -229,12 +218,14 @@ exports[`Should render Property correctly 1`] = `
             <p
               className="property__text"
             >
-              
+              A bright and charming apartment with 1 bedroom, located close to Museum Square in one of the most cosmopolitan and vibrant districts of Amsterdam "de PIJP".
+              Perfect for short holidays, business trips.
             </p>
             <p
               className="property__text"
             >
-              
+              A bright and charming apartment with 1 bedroom, located close to Museum Square in one of the most cosmopolitan and vibrant districts of Amsterdam "de PIJP".
+              Perfect for short holidays, business trips.
             </p>
           </div>
         </div>
