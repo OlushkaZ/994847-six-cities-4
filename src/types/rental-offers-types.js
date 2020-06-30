@@ -54,6 +54,7 @@ export const appTypes = {
 
 export const offerCardTypes = Object.assign({}, offerShape.isRequired, {
   onMouseEnter: PropTypes.func.isRequired,
+  onMouseLeave: PropTypes.func.isRequired,
 });
 
 export const offersListTypes = {
@@ -61,11 +62,7 @@ export const offersListTypes = {
 };
 
 export const mapTypes = {
-  activeOffer: PropTypes.shape({
-    location: PropTypes.shape({
-      cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-    })
-  }),
+  activeOffer: PropTypes.number,
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         location: PropTypes.shape({

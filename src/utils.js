@@ -1,4 +1,4 @@
-const MAX_CITIES_COUNT = 6;
+import {SortType} from './constants';
 
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -17,8 +17,16 @@ export const getOffersInCity = (city, offers) => {
     .offers;
 };
 
-export const getUniqueCities = (offers) => {
-  const cities = new Set();
-  offers.forEach((offer) => cities.add(offer.location.city));
-  return [...cities].slice(0, MAX_CITIES_COUNT);
+export const getSortedOffers = (offers, sortType) => {
+  switch (sortType) {
+    case SortType.PRICE_LOW_TO_HIGH:
+      return offers.slice().sort((a, b) => a.price - b.price);
+    case SortType.PRICE_HIGH_TO_LOW:
+      return offers.slice().sort((a, b) => b.price - a.price);
+    case SortType.TOP_RATED:
+      return offers.slice().sort((a, b) => b.rating - a.rating);
+    default:
+      return offers;
+  }
 };
+

@@ -1,23 +1,9 @@
 import React from 'react';
 
 import {offersListTypes} from '../../types/rental-offers-types';
-import OfferCard from '../offer-card/offer-card.jsx';
+import OfferCard from '../offer-card/offer-card';
 
 class OffersList extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeOffer: null,
-    };
-
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-  }
-
-  handleMouseEnter(activeOffer) {
-    this.setState({activeOffer});
-  }
-
   render() {
     const {
       offers = []
@@ -46,7 +32,6 @@ class OffersList extends React.PureComponent {
                 type={type}
                 isPremium={isPremium}
                 isBookmark={isBookmark}
-                onMouseEnter={this.handleMouseEnter}
               />
             )
         )}

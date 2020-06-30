@@ -106,6 +106,7 @@ exports[`Render App 1`] = `
             </span>
             <span
               className="places__sorting-type"
+              onClick={[Function]}
               tabIndex="0"
             >
               Popular
@@ -120,28 +121,32 @@ exports[`Render App 1`] = `
               </svg>
             </span>
             <ul
-              className="places__options places__options--custom places__options--opened"
+              className="places__options places__options--custom "
             >
               <li
-                className="places__option places__option--active"
+                className="places__option "
+                onClick={[Function]}
                 tabIndex="0"
               >
                 Popular
               </li>
               <li
-                className="places__option"
-                tabIndex="0"
-              >
-                Price: low to high
-              </li>
-              <li
-                className="places__option"
+                className="places__option "
+                onClick={[Function]}
                 tabIndex="0"
               >
                 Price: high to low
               </li>
               <li
-                className="places__option"
+                className="places__option "
+                onClick={[Function]}
+                tabIndex="0"
+              >
+                Price: low to high
+              </li>
+              <li
+                className="places__option "
+                onClick={[Function]}
                 tabIndex="0"
               >
                 Top rated first
@@ -154,6 +159,7 @@ exports[`Render App 1`] = `
             <article
               className="cities__place-card place-card"
               onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -258,6 +264,7 @@ exports[`Render App 1`] = `
             <article
               className="cities__place-card place-card"
               onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
@@ -355,6 +362,7 @@ exports[`Render App 1`] = `
             <article
               className="cities__place-card place-card"
               onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -459,6 +467,7 @@ exports[`Render App 1`] = `
             <article
               className="cities__place-card place-card"
               onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="cities__image-wrapper place-card__image-wrapper"

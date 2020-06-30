@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer";
 import {CitiesListType} from '../../types/rental-offers-types';
 
+const MAX_CITIES_COUNT = 6;
+
 const CitiesList = (props) => {
   const {
     currentLocation,
@@ -33,7 +35,9 @@ CitiesList.propTypes = CitiesListType;
 
 const mapStateToProps = (state) => ({
   currentLocation: state.currentLocation,
-  locations: state.allOffers.map((offer) => offer.location)
+  locations: state.allOffers
+  .map((offer) => offer.location)
+  .slice(0, MAX_CITIES_COUNT)
 });
 
 const mapDispatchToProps = (dispatch) => ({
