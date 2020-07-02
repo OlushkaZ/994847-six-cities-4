@@ -1,5 +1,7 @@
 import {SortType} from './constants';
 
+const MAX_CITIES_COUNT = 6;
+
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
   const options = {
@@ -16,6 +18,10 @@ export const getOffersInCity = (city, offers) => {
     .find((offer) => offer.location.city === city)
     .offers;
 };
+
+export const getLocationsFromOffers = (allOffers) => allOffers
+  .map((offer) => offer.location)
+  .slice(0, MAX_CITIES_COUNT);
 
 export const getSortedOffers = (offers, sortType) => {
   switch (sortType) {

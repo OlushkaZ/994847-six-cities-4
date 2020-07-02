@@ -7,7 +7,7 @@ import {REVIEWS} from './mocks/reviews';
 import {allOffers} from './mocks/all-offers';
 import App from './components/app/app.jsx';
 
-import {getOffersInCity} from './utils';
+import {getOffersInCity, getLocationsFromOffers} from './utils';
 import {reducer} from "./reducer";
 import {SortType} from './constants';
 
@@ -18,6 +18,7 @@ const initialState = {
   allOffers,
   currentOffers: getOffersInCity(allOffers[0].location.city, allOffers),
   currentSortType: SortType.POPULAR,
+  locations: getLocationsFromOffers(allOffers),
 };
 
 const RENTAL_OFFERS_COUNT = 4;

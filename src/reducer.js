@@ -8,6 +8,7 @@ const initialState = {
   },
   allOffers: [],
   currentOffers: [],
+  locations: [],
   currentSortType: ``,
   activeOfferLocation: null,
   showSortMenu: false,
