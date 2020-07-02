@@ -42,7 +42,7 @@ class App extends React.PureComponent {
         <Switch>
           <Route exact path="/">
             <Main
-              offers={offers}
+              offers={[offers]}
               currentLocation={currentLocation}
             />
           </Route>
