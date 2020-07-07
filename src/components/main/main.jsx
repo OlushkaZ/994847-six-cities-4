@@ -6,6 +6,7 @@ import Sorting from '../sorting/sorting.jsx';
 import Map from '../map/map.jsx';
 import CitiesList from '../cities-list/cities-list';
 import NoOffers from '../no-offers/no-offers';
+import Error from '../error/error';
 
 const Main = (props) => {
   const {offers, currentLocation} = props;
@@ -70,6 +71,7 @@ const Main = (props) => {
             : <NoOffers/>
           }
         </div>
+        <Error />
       </main>
     </div>
   );

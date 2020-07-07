@@ -34,6 +34,7 @@ const initialState = {
     }
   ],
   currentOffers: [],
+  isError: false,
 };
 
 it(`Reducer: initialState`, () => {
@@ -78,6 +79,7 @@ it(`Reducer: changeLocation`, () => {
       }
     ],
     currentOffers: [],
+    isError: false,
   });
 });
 
@@ -122,6 +124,7 @@ it(`Reducer: changeCurrentOffers`, () => {
         name: `My Offer`,
       }
     ],
+    isError: false,
   });
 });
 
@@ -197,5 +200,6 @@ it(`Reducer: setAllOffers`, () => {
         cityCoordinates: [2.01, 3.01],
       },
     ],
+    isError: false,
   });
 });

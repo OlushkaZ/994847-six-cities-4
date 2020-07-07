@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Error render correctly 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "white",
+      "border": "2px solid red",
+      "fontSize": "20px",
+      "fontWeight": "bold",
+      "position": "fixed",
+      "right": "50%",
+      "textAlign": "center",
+      "top": 0,
+      "width": "300px",
+    }
+  }
+>
+  Что-то пошло не так
+</div>
+`;

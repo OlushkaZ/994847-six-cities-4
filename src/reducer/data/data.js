@@ -9,12 +9,14 @@ const initialState = {
   allOffers: [],
   currentOffers: [],
   locations: [],
+  isError: false
 };
 
 const ActionType = {
   CHANGE_LOCATION: `CHANGE_LOCATION`,
   CHANGE_CURRENT_OFFERS: `CHANGE_CURRENT_OFFERS`,
-  SET_ALL_OFFERS: `SET_ALL_OFFERS`
+  SET_ALL_OFFERS: `SET_ALL_OFFERS`,
+  SET_ERROR: `SET_ERROR`,
 };
 
 const ActionCreator = {
@@ -36,8 +38,15 @@ const ActionCreator = {
         dispatch(ActionCreator.setAllOffers(hotels));
         dispatch(ActionCreator.changeLocation(hotels[0].location));
         dispatch(ActionCreator.changeCurrentOffers(hotels[0].location.city));
+      })
+      .catch(() => {
+        dispatch(ActionCreator.setError(true));
       });
   },
+  setError: (isError) => ({
+    type: ActionType.SET_ERROR,
+    payload: isError,
+  }),
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -52,6 +61,10 @@ const dataReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         allOffers: action.payload,
         locations: getLocationsFromOffers(action.payload),
+      });
+    case ActionType.SET_ERROR:
+      return Object.assign({}, state, {
+        isError: action.payload,
       });
     default:
       return state;
