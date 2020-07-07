@@ -20,8 +20,8 @@ export const getOffersInCity = (city, offers) => {
 };
 
 export const getLocationsFromOffers = (allOffers) => allOffers
-  .map((offer) => offer.location)
-  .slice(0, MAX_CITIES_COUNT);
+  .slice(0, MAX_CITIES_COUNT)
+  .map((offer) => offer.location);
 
 export const getSortedOffers = (offers, sortType) => {
   switch (sortType) {

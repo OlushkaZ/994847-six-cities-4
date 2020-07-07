@@ -5,6 +5,7 @@ import OffersList from '../offers-list/offers-list.jsx';
 import Sorting from '../sorting/sorting.jsx';
 import Map from '../map/map.jsx';
 import CitiesList from '../cities-list/cities-list';
+import NoOffers from '../no-offers/no-offers';
 
 const Main = (props) => {
   const {offers, currentLocation} = props;
@@ -50,22 +51,24 @@ const Main = (props) => {
           <CitiesList />
         </div>
         <div className="cities">
-          <div className="cities__places-container container">
-            <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">
-                {offers.length
-                  ? `${offers.length} places to stay in ${currentLocation.city}`
-                  : `No places to stay available`
-                }
-              </b>
-              <Sorting />
-              <OffersList offers={offers} />
-            </section>
-            <div className="cities__right-section">
-              <Map />
-            </div>
-          </div>
+          {offers.length
+            ? (
+              <div className="cities__places-container container">
+                <section className="cities__places places">
+                  <h2 className="visually-hidden">Places</h2>
+                  <b className="places__found">
+                    {`${offers.length} places to stay in ${currentLocation.city}`}
+                  </b>
+                  <Sorting />
+                  <OffersList offers={offers} />
+                </section>
+                <div className="cities__right-section">
+                  <Map />
+                </div>
+              </div>
+            )
+            : <NoOffers/>
+          }
         </div>
       </main>
     </div>
