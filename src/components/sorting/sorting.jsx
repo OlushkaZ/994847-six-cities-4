@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from "react-redux";
 
-import {ActionCreator} from "../../reducer";
+import {ActionCreator} from "../../reducer/ui/ui";
 import {SortType} from '../../constants';
 import {sortTypes} from '../../types/sort-types';
 
@@ -86,8 +86,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  currentSortType: state.currentSortType,
-  isOpened: state.showSortMenu,
+  currentSortType: state.ui.currentSortType,
+  isOpened: state.ui.showSortMenu,
 });
 
 Sorting.propTypes = sortTypes;

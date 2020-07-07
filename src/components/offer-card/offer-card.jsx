@@ -2,8 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 
-import {ActionCreator} from "../../reducer";
+import {ActionCreator} from "../../reducer/ui/ui";
 import {offerCardTypes} from '../../types/rental-offers-types';
+import {convertRatingToPercent} from '../../utils';
 
 const ACTIVE_CLASS_NAME = `place-card__bookmark-button--active`;
 
@@ -52,7 +53,7 @@ const OfferCard = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: rating}}></span>
+            <span style={{width: convertRatingToPercent(rating)}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

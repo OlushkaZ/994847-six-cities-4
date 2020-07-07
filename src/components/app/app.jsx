@@ -58,8 +58,8 @@ class App extends React.PureComponent {
 App.propTypes = appTypes;
 
 const mapStateToProps = (state) => ({
-  currentLocation: state.currentLocation,
-  offers: state.currentOffers,
+  currentLocation: state.data.currentLocation,
+  offers: state.data.currentOffers,
 });
 
 export {App};

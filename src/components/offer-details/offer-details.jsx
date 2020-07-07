@@ -6,6 +6,7 @@ import {OFFER_TYPES_DISPLAY} from '../../constants';
 import ReviewsList from '../reviews-list/reviews-list';
 import OfferCard from '../offer-card/offer-card';
 import Map from '../map/map';
+import {convertRatingToPercent} from '../../utils';
 
 const MAX_COUNT_IMAGES = 6;
 const ACTIVE_CLASS_NAME = `property__bookmark-button--active`;
@@ -30,6 +31,7 @@ const OfferDetails = (props) => {
     featuresDetails,
     host: {photo, hostName, isSuper},
     description,
+    rating,
     isPremium,
     isBookmark,
   } = offer;
@@ -71,7 +73,7 @@ const OfferDetails = (props) => {
             </div>
             <div className="property__rating rating">
               <div className="property__stars rating__stars">
-                <span style={{width: `80%`}}></span>
+                <span style={{width: convertRatingToPercent(rating)}}></span>
                 <span className="visually-hidden">Rating</span>
               </div>
               <span className="property__rating-value rating__value">{ratingDetails}</span>
