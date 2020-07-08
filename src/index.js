@@ -8,6 +8,7 @@ import {REVIEWS} from './mocks/reviews';
 import App from './components/app/app.jsx';
 import {dataReducer, ActionCreator} from './reducer/data/data';
 import {uiReducer} from './reducer/ui/ui';
+import {userReducer} from './reducer/user/user';
 
 const RENTAL_OFFERS_COUNT = 4;
 
@@ -18,6 +19,7 @@ const store = createStore(
     combineReducers({
       data: dataReducer,
       ui: uiReducer,
+      user: userReducer,
     }),
     compose(
         applyMiddleware(thunk),

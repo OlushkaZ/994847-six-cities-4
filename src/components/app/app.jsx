@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {appTypes} from '../../types/rental-offers-types';
 import Main from '../main/main.jsx';
 import OfferDetails from '../offer-details/offer-details.jsx';
+import SignIn from '../sign-in/sign-in';
 
 const MAX_REVIEWS_COUNT = 10;
 const MAX_OFFERS_NEARBY_COUNT = 3;
@@ -48,6 +49,9 @@ class App extends React.PureComponent {
           </Route>
           <Route exact path="/offer-details/:id">
             {({match}) => this._renderOfferDetails(match.params.id)}
+          </Route>
+          <Route exact path="/sign-in">
+            <SignIn/>
           </Route>
         </Switch>
       </BrowserRouter>

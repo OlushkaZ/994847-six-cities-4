@@ -14,3 +14,6 @@ export const createAPI = () => {
 export const fetchHotels = () => createAPI()
   .get(`/hotels`)
   .then((response) => offersAdapter(response.data));
+
+export const checkAuth = () => createAPI()
+  .get(`/login`);
