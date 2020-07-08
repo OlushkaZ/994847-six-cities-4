@@ -3,7 +3,7 @@ import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import {SortType} from '../../constants';
-import {Sorting} from './sorting.jsx';
+import {Sorting} from './sorting';
 
 Enzyme.configure({
   adapter: new Adapter(),

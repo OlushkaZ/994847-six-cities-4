@@ -1,30 +1,31 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-dom';
 
 import {authorizationTypes} from '../../types/rental-offers-types';
 
-const Auth = ({authorizationStatus}) => {
+const Auth = ({authorizationStatus, email}) => {
   return (
     <nav className="header__nav">
       <ul className="header__nav-list">
         <li className="header__nav-item user">
           {(authorizationStatus === `NO_AUTH`)
             ? (
-              <a className="header__nav-link header__nav-link--profile" href="#">
+              <Link to={{pathname: `/sign-in`}} className="header__nav-link header__nav-link--profile">
                 <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                 <span className="header__login">Sign in</span>
-              </a>
+              </Link>
             )
             : (
-              <a
+              <Link
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                to={{pathname: `/sign-in`}}
               >
                 <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                 <span className="header__user-name user__name">
-                      Oliver.conner@gmail.com
+                  {email}
                 </span>
-              </a>
+              </Link>
             )}
         </li>
       </ul>
@@ -34,6 +35,7 @@ const Auth = ({authorizationStatus}) => {
 
 const mapStateToProps = (state) => ({
   authorizationStatus: state.user.authorizationStatus,
+  email: state.user.email,
 });
 
 Auth.propTypes = authorizationTypes;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render RentalCard correctly 1`] = `
+exports[`Should render ReviewsList correctly 1`] = `
 <section
   className="property__reviews reviews"
 >

@@ -2,11 +2,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {REVIEWS} from '../../test-mocks/reviews';
-import ReviewsList from './reviews-list';
+import {ReviewsList} from './reviews-list';
 
-it(`Should render RentalCard correctly`, () => {
+it(`Should render ReviewsList correctly`, () => {
   const tree = renderer.create((
-    <ReviewsList reviewsTotalCount={REVIEWS.length} reviews={REVIEWS} />
+    <ReviewsList reviewsTotalCount={REVIEWS.length} reviews={REVIEWS} authorizationStatus={`AUTH`} />
   )).toJSON();
 
   expect(tree).toMatchSnapshot();

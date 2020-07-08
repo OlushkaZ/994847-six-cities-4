@@ -17,3 +17,10 @@ export const fetchHotels = () => createAPI()
 
 export const checkAuth = () => createAPI()
   .get(`/login`);
+
+export const login = (email, password) => createAPI()
+  .post(`/login`, {
+    email,
+    password,
+  }
+  );

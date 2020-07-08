@@ -1,19 +1,13 @@
 import React from 'react';
-import {createStore, combineReducers} from 'redux';
+import {createStore} from 'redux';
 import {Provider} from "react-redux";
 import renderer from 'react-test-renderer';
 
-import {dataReducer} from '../../reducer/data';
-import {uiReducer} from '../../reducer/ui';
+import reducer from '../../reducer/combine-reducer';
 import {allOffers} from '../../test-mocks/all-offers';
 import OfferDetails from './offer-details';
 
-const store = createStore(
-    combineReducers({
-      data: dataReducer,
-      ui: uiReducer,
-    })
-);
+const store = createStore(reducer);
 
 it(`Should render Property correctly`, () => {
   const tree = renderer.create((
