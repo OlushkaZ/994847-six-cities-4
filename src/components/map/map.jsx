@@ -80,9 +80,9 @@ class Map extends PureComponent {
 Map.propTypes = mapTypes;
 
 const mapStateToProps = (state) => ({
-  currentLocation: state.currentLocation,
-  offers: state.currentOffers,
-  activeOffer: state.activeOfferLocation,
+  currentLocation: state.data.currentLocation,
+  offers: state.data.currentOffers,
+  activeOffer: state.ui.activeOfferLocation,
 });
 
 export {Map};

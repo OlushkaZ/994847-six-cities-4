@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import {ActionCreator} from "../../reducer";
+import {ActionCreator} from "../../reducer/data/data";
 import {CitiesListType} from '../../types/rental-offers-types';
 
 const CitiesList = (props) => {
@@ -32,8 +32,8 @@ const CitiesList = (props) => {
 CitiesList.propTypes = CitiesListType;
 
 const mapStateToProps = (state) => ({
-  currentLocation: state.currentLocation,
-  locations: state.locations,
+  currentLocation: state.data.currentLocation,
+  locations: state.data.locations,
 });
 
 const mapDispatchToProps = (dispatch) => ({
