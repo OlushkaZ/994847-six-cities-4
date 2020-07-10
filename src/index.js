@@ -5,7 +5,6 @@ import {Provider} from "react-redux";
 import thunk from 'redux-thunk';
 
 import reducer from './reducer/combine-reducer';
-import {REVIEWS} from './mocks/reviews';
 import App from './components/app/app';
 import {ActionCreator} from './reducer/data/data';
 import {ActionCreator as UserActionCreator} from './reducer/user/user';
@@ -30,7 +29,6 @@ store.dispatch(UserActionCreator.checkAuthorization());
 ReactDOM.render(
     <Provider store={store}>
       <App
-        reviews={REVIEWS}
         rentalOffersCount={RENTAL_OFFERS_COUNT}
         onHeaderClick={handleHeaderClick}
       />

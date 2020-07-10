@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {Link} from 'react-router-dom';
 
-import {authorizationTypes} from '../../types/rental-offers-types';
+import {authorizationTypes} from '../../types/authorization-types';
 
 const Auth = ({authorizationStatus, email}) => {
   return (
