@@ -1,21 +1,15 @@
 import React from 'react';
-import {createStore, combineReducers} from 'redux';
+import {createStore} from 'redux';
 import {Provider} from "react-redux";
 import renderer from 'react-test-renderer';
 import {BrowserRouter} from 'react-router-dom';
 
-import {dataReducer} from '../../reducer/data';
-import {uiReducer} from '../../reducer/ui';
+import reducer from '../../reducer/combine-reducer';
 import {allOffers} from '../../test-mocks/all-offers';
 import {location} from '../../test-mocks/location';
-import Main from './main.jsx';
+import Main from './main';
 
-const store = createStore(
-    combineReducers({
-      data: dataReducer,
-      ui: uiReducer,
-    })
-);
+const store = createStore(reducer);
 
 it(`Should render Main correctly`, () => {
   const tree = renderer

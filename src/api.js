@@ -14,3 +14,13 @@ export const createAPI = () => {
 export const fetchHotels = () => createAPI()
   .get(`/hotels`)
   .then((response) => offersAdapter(response.data));
+
+export const checkAuth = () => createAPI()
+  .get(`/login`);
+
+export const login = (email, password) => createAPI()
+  .post(`/login`, {
+    email,
+    password,
+  }
+  );

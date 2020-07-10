@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {Sorting} from './sorting.jsx';
+import {Sorting} from './sorting';
 
 it(`Should Sorting render correctly`, () => {
   const tree = renderer

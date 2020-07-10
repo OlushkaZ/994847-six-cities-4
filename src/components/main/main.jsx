@@ -1,12 +1,13 @@
 import React from 'react';
 
 import {mainTypes} from '../../types/rental-offers-types';
-import OffersList from '../offers-list/offers-list.jsx';
-import Sorting from '../sorting/sorting.jsx';
-import Map from '../map/map.jsx';
+import OffersList from '../offers-list/offers-list';
+import Sorting from '../sorting/sorting';
+import Map from '../map/map';
 import CitiesList from '../cities-list/cities-list';
 import NoOffers from '../no-offers/no-offers';
 import Error from '../error/error';
+import Auth from '../auth/auth';
 
 const Main = (props) => {
   const {offers, currentLocation} = props;
@@ -27,21 +28,7 @@ const Main = (props) => {
                 />
               </a>
             </div>
-            <nav className="header__nav">
-              <ul className="header__nav-list">
-                <li className="header__nav-item user">
-                  <a
-                    className="header__nav-link header__nav-link--profile"
-                    href="#"
-                  >
-                    <div className="header__avatar-wrapper user__avatar-wrapper"></div>
-                    <span className="header__user-name user__name">
-                      Oliver.conner@gmail.com
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <Auth />
           </div>
         </div>
       </header>
