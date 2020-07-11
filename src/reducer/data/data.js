@@ -15,6 +15,7 @@ const initialState = {
     review: ``,
   },
   reviews: [],
+  isReviewCreating: false,
 };
 
 const ActionType = {
@@ -24,6 +25,7 @@ const ActionType = {
   SET_ERROR: `SET_ERROR`,
   SET_REVIEWS: `SET_REVIEWS`,
   CHANGE_FIELD_REVIEW: `CHANGE_FIELD_REVIEW`,
+  SET_REVIEW_CREATING: `SET_REVIEW_CREATING`,
 };
 
 const ActionCreator = {
@@ -38,6 +40,10 @@ const ActionCreator = {
   setAllOffers: (allOffers) => ({
     type: ActionType.SET_ALL_OFFERS,
     payload: allOffers,
+  }),
+  setReviewCreating: (isReviewCreating) => ({
+    type: ActionType.SET_REVIEW_CREATING,
+    payload: isReviewCreating
   }),
   changeFieldReview: (evt) => ({
     type: ActionType.CHANGE_FIELD_REVIEW,
@@ -79,21 +85,24 @@ const ActionCreator = {
 
     evt.preventDefault();
 
-    if (!isValidReview(data.newReview)) {
+    if (!isValidReview(data.newReview) || data.isReviewCreating) {
       return;
     }
 
+    dispatch(ActionCreator.setReviewCreating(true));
     createReview(
         match.params.id,
         data.newReview.rating,
         data.newReview.review
     )
-    .then((reviews) => {
-      dispatch(ActionCreator.setReviews(reviews));
-    })
-    .catch(() => {
-      dispatch(ActionCreator.setError(true));
-    });
+      .then((reviews) => {
+        dispatch(ActionCreator.setReviews(reviews));
+        dispatch(ActionCreator.setReviewCreating(false));
+      })
+      .catch(() => {
+        dispatch(ActionCreator.setError(true));
+        dispatch(ActionCreator.setReviewCreating(false));
+      });
   },
 };
 
@@ -127,6 +136,10 @@ const dataReducer = (state = initialState, action) => {
         newReview: Object.assign({}, state.newReview, {
           [action.payload.field]: action.payload.value,
         }),
+      });
+    case ActionType.SET_REVIEW_CREATING:
+      return Object.assign({}, state, {
+        isReviewCreating: action.payload,
       });
     default:
       return state;

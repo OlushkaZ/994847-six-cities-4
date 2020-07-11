@@ -14,6 +14,7 @@ it(`Should CommentSubmissionForm works`, () => {
 
   const form = mount(
       <CommentSubmissionForm
+        isDisabled={false}
         values={{
           rating: `5`,
           review: `lorem ipsum`

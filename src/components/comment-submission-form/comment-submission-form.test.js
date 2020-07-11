@@ -6,6 +6,7 @@ import {CommentSubmissionForm} from './comment-submission-form';
 it(`Should CommentSubmissionForm render correctly`, () => {
   const tree = renderer.create((
     <CommentSubmissionForm
+      isDisabled={false}
       values={{
         rating: `5`,
         review: `lorem ipsum`

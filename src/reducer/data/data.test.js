@@ -35,6 +35,12 @@ const initialState = {
   ],
   currentOffers: [],
   isError: false,
+  newReview: {
+    rating: ``,
+    review: ``,
+  },
+  reviews: [],
+  isReviewCreating: false,
 };
 
 it(`Reducer: initialState`, () => {
@@ -80,6 +86,12 @@ it(`Reducer: changeLocation`, () => {
     ],
     currentOffers: [],
     isError: false,
+    newReview: {
+      rating: ``,
+      review: ``,
+    },
+    reviews: [],
+    isReviewCreating: false,
   });
 });
 
@@ -125,6 +137,12 @@ it(`Reducer: changeCurrentOffers`, () => {
       }
     ],
     isError: false,
+    newReview: {
+      rating: ``,
+      review: ``,
+    },
+    reviews: [],
+    isReviewCreating: false,
   });
 });
 
@@ -201,5 +219,49 @@ it(`Reducer: setAllOffers`, () => {
       },
     ],
     isError: false,
+    newReview: {
+      rating: ``,
+      review: ``,
+    },
+    reviews: [],
+    isReviewCreating: false,
+  });
+});
+
+it(`Reducer: setReviewCreating`, () => {
+  expect(dataReducer(undefined, ActionCreator.setReviewCreating(true))).toEqual({
+    currentLocation: {
+      city: ``,
+      cityCoordinates: [0, 0],
+    },
+    allOffers: [],
+    currentOffers: [],
+    locations: [],
+    isError: false,
+    newReview: {
+      rating: ``,
+      review: ``,
+    },
+    reviews: [],
+    isReviewCreating: true,
+  });
+});
+
+it(`Reducer: setReviewCreating`, () => {
+  expect(dataReducer(undefined, ActionCreator.changeFieldReview({target: {value: `123`, name: `review`}}))).toEqual({
+    currentLocation: {
+      city: ``,
+      cityCoordinates: [0, 0],
+    },
+    allOffers: [],
+    currentOffers: [],
+    locations: [],
+    isError: false,
+    newReview: {
+      rating: ``,
+      review: `123`,
+    },
+    reviews: [],
+    isReviewCreating: false,
   });
 });

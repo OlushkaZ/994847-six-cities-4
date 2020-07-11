@@ -4,6 +4,8 @@ const MAX_CITIES_COUNT = 6;
 const MAX_RATING_COUNT = 5;
 const MAX_RATING_PERCENT_COUNT = 100;
 const MAX_REVIEWS_COUNT = 10;
+const MIN_REVIEW_LENGTH = 50;
+const MAX_REVIEW_LENGTH = 300;
 
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -114,7 +116,7 @@ export const isValidReview = (values) => {
     return false;
   }
 
-  if (values.review.length < 50 || values.review.length > 300) {
+  if (values.review.length < MIN_REVIEW_LENGTH || values.review.length > MAX_REVIEW_LENGTH) {
     return false;
   }
 

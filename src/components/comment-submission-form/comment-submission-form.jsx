@@ -29,7 +29,7 @@ const ratingFields = [
   },
 ];
 
-const CommentSubmissionForm = ({values, onChange, onSubmit}) => {
+const CommentSubmissionForm = ({values, onChange, onSubmit, isDisabled}) => {
   return (
     <form onSubmit={onSubmit} className="reviews__form form" action="#" method="post">
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
@@ -44,6 +44,7 @@ const CommentSubmissionForm = ({values, onChange, onSubmit}) => {
               id={`${rating.value}-stars`}
               type="radio"
               checked={values.rating === rating.value}
+              disabled={isDisabled}
             />
             <label
               htmlFor={`${rating.value}-stars`}
@@ -63,6 +64,7 @@ const CommentSubmissionForm = ({values, onChange, onSubmit}) => {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
+        disabled={isDisabled}
       />
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
@@ -71,7 +73,7 @@ const CommentSubmissionForm = ({values, onChange, onSubmit}) => {
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled={!isValidReview(values)}
+          disabled={!isValidReview(values) || isDisabled}
         >
           Submit
         </button>
@@ -81,7 +83,8 @@ const CommentSubmissionForm = ({values, onChange, onSubmit}) => {
 };
 
 const mapStateToProps = (state) => ({
-  values: state.data.newReview
+  values: state.data.newReview,
+  isDisabled: state.data.isReviewCreating
 });
 
 const mapDispatchToProps = (dispatch, {match}) => ({
