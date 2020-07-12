@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {withRouter} from 'react-router-dom';
 
-import {ActionCreator} from '../../reducer/data';
+import {ActionCreator} from '../../reducer/reviews';
 import {isValidReview} from '../../utils';
 import {CommentSubmissionFormTypes} from '../../types/comment-submission-form-types';
 
@@ -83,8 +83,8 @@ const CommentSubmissionForm = ({values, onChange, onSubmit, isDisabled}) => {
 };
 
 const mapStateToProps = (state) => ({
-  values: state.data.newReview,
-  isDisabled: state.data.isReviewCreating
+  values: state.reviews.newReview,
+  isDisabled: state.reviews.isReviewCreating
 });
 
 const mapDispatchToProps = (dispatch, {match}) => ({

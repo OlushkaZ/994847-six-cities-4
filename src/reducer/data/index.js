@@ -1,1 +1,1 @@
-export {dataReducer, ActionType, ActionCreator} from './data';
+export {dataReducer, ActionCreator} from './data';

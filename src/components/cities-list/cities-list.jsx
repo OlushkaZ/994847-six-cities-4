@@ -40,7 +40,6 @@ const mapDispatchToProps = (dispatch) => ({
   onCityClick(evt, location) {
     evt.preventDefault();
     dispatch(ActionCreator.changeLocation(location));
-    dispatch(ActionCreator.changeCurrentOffers(location.city));
   },
 });
 

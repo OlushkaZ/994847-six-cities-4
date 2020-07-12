@@ -1,7 +1,7 @@
 import axios from 'axios';
-import {offersAdapter, reviewsAdapter} from './utils';
+import {offersAdapter, reviewsAdapter, offerAdapter} from './utils';
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: `https://4.react.pages.academy/six-cities`,
   timeout: 5000,
   withCredentials: true,
@@ -9,7 +9,7 @@ const api = axios.create({
 
 export const fetchHotels = () => api
   .get(`/hotels`)
-  .then((response) => offersAdapter(response.data));
+  .then((response) => response.data.map(offerAdapter));
 
 export const checkAuth = () => api.get(`/login`);
 
@@ -37,3 +37,11 @@ export const createReview = (offerId, rating, text) => api
       return reviewsAdapter(comment);
     });
   });
+
+export const changeStatusFavorites = (offerId, isBookmark) => api
+    .post(`/favorite/${offerId}/${Number(isBookmark)}`);
+
+export const fetchFavoritesOffers = () => api
+    .get(`/favorite`)
+    .then((response) => offersAdapter(response.data));
+

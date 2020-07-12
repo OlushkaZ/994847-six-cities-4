@@ -15,6 +15,7 @@ it(`Render App`, () => {
     .create((
       <Provider store={store}>
         <App
+          authorizationStatus={`AUTH`}
           currentLocation={location}
           offers={allOffers[0].offers}
         />

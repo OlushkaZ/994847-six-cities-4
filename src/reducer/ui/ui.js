@@ -1,6 +1,3 @@
-import {SortType} from '../../constants';
-import {getOffersInCity, getSortedOffers} from '../../utils';
-
 const initialState = {
   currentSortType: ``,
   activeOfferLocation: null,
@@ -33,9 +30,6 @@ const uiReducer = (state = initialState, action) => {
     case ActionType.SORT_OFFERS:
       return Object.assign({}, state, {
         currentSortType: action.payload,
-        currentOffers: action.payload === SortType.POPULAR
-          ? getOffersInCity(state.currentLocation.city, state.allOffers)
-          : getSortedOffers(state.currentOffers, action.payload),
       });
     case ActionType.SET_ACTIVE_OFFER:
       return Object.assign({}, state, {

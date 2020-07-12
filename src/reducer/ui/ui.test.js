@@ -1,5 +1,5 @@
-import {uiReducer, ActionCreator} from './ui';
 import {SortType} from '../../constants';
+import {uiReducer, ActionCreator} from './ui';
 
 const initialState = {
   currentLocation: {
@@ -34,7 +34,6 @@ const initialState = {
       ]
     }
   ],
-  currentOffers: [],
 };
 
 it(`Reducer: sortOffers`, () => {
@@ -75,37 +74,15 @@ it(`Reducer: sortOffers`, () => {
       }
     ],
     currentSortType: SortType.POPULAR,
-    currentOffers: [
-      {
-        id: 0,
-        coordinates: [1, 2],
-        name: `My Offer`,
-      },
-    ],
   });
 
   expect(uiReducer(
-      {
-        currentOffers: [
-          {
-            rating: 0.5
-          },
-          {
-            rating: 1
-          },
-        ],
-      },
+      undefined,
       ActionCreator.sortOffers(SortType.TOP_RATED))
   ).toEqual({
+    activeOfferLocation: null,
     currentSortType: SortType.TOP_RATED,
-    currentOffers: [
-      {
-        rating: 1
-      },
-      {
-        rating: 0.5
-      },
-    ],
+    showSortMenu: false,
   });
 });
 
