@@ -2,34 +2,31 @@ import React from 'react';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
 
+import {ActionCreator} from '../../reducer/data';
 import {appTypes} from '../../types/rental-offers-types';
 import Main from '../main/main';
 import OfferDetails from '../offer-details/offer-details';
 import SignIn from '../sign-in/sign-in';
 
-const MAX_REVIEWS_COUNT = 10;
 const MAX_OFFERS_NEARBY_COUNT = 3;
 
 class App extends React.PureComponent {
   _renderOfferDetails(offerId) {
-    const {offers, reviews} = this.props;
+    const {offers, onGetReviews} = this.props;
     const offer = offers.find(({id}) => id === Number(offerId));
 
-    const sortedReviews = reviews
-      .slice()
-      .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
-      .slice(0, MAX_REVIEWS_COUNT);
+    if (!offer) {
+      return <Redirect to="/" />;
+    }
 
-    return offer
-      ? (
-        <OfferDetails
-          offers={offers.filter(({id}) => id !== offer.id).slice(0, MAX_OFFERS_NEARBY_COUNT)}
-          reviewsTotalCount={reviews.length}
-          reviews={sortedReviews}
-          offer={offer}
-        />
-      )
-      : <Redirect to="/" />;
+    onGetReviews(offer.id);
+
+    return (
+      <OfferDetails
+        offers={offers.filter(({id}) => id !== offer.id).slice(0, MAX_OFFERS_NEARBY_COUNT)}
+        offer={offer}
+      />
+    );
   }
 
   render() {
@@ -69,5 +66,9 @@ const mapStateToProps = (state) => ({
   authorizationStatus: state.user.authorizationStatus,
 });
 
+const mapDispatchToProps = {
+  onGetReviews: ActionCreator.getReviews
+};
+
 export {App};
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

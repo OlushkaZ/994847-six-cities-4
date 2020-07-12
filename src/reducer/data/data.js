@@ -1,5 +1,5 @@
-import {getOffersInCity, getLocationsFromOffers} from '../../utils';
-import {fetchHotels} from '../../api';
+import {getOffersInCity, getLocationsFromOffers, isValidReview} from '../../utils';
+import {fetchHotels, fetchComments, createReview} from '../../api';
 
 const initialState = {
   currentLocation: {
@@ -9,7 +9,13 @@ const initialState = {
   allOffers: [],
   currentOffers: [],
   locations: [],
-  isError: false
+  isError: false,
+  newReview: {
+    rating: ``,
+    review: ``,
+  },
+  reviews: [],
+  isReviewCreating: false,
 };
 
 const ActionType = {
@@ -17,6 +23,9 @@ const ActionType = {
   CHANGE_CURRENT_OFFERS: `CHANGE_CURRENT_OFFERS`,
   SET_ALL_OFFERS: `SET_ALL_OFFERS`,
   SET_ERROR: `SET_ERROR`,
+  SET_REVIEWS: `SET_REVIEWS`,
+  CHANGE_FIELD_REVIEW: `CHANGE_FIELD_REVIEW`,
+  SET_REVIEW_CREATING: `SET_REVIEW_CREATING`,
 };
 
 const ActionCreator = {
@@ -31,6 +40,17 @@ const ActionCreator = {
   setAllOffers: (allOffers) => ({
     type: ActionType.SET_ALL_OFFERS,
     payload: allOffers,
+  }),
+  setReviewCreating: (isReviewCreating) => ({
+    type: ActionType.SET_REVIEW_CREATING,
+    payload: isReviewCreating
+  }),
+  changeFieldReview: (evt) => ({
+    type: ActionType.CHANGE_FIELD_REVIEW,
+    payload: {
+      value: evt.target.value,
+      field: evt.target.name,
+    }
   }),
   loadOffers: () => (dispatch) => {
     fetchHotels()
@@ -47,6 +67,43 @@ const ActionCreator = {
     type: ActionType.SET_ERROR,
     payload: isError,
   }),
+  getReviews: (offerId) => (dispatch) => {
+    fetchComments(offerId)
+      .then((reviews) => {
+        dispatch(ActionCreator.setReviews(reviews));
+      })
+      .catch(() => {
+        dispatch(ActionCreator.setError(true));
+      });
+  },
+  setReviews: (reviews) => ({
+    type: ActionType.SET_REVIEWS,
+    payload: reviews,
+  }),
+  publishReview: (evt, match) => (dispatch, getState) => {
+    const {data} = getState();
+
+    evt.preventDefault();
+
+    if (!isValidReview(data.newReview) || data.isReviewCreating) {
+      return;
+    }
+
+    dispatch(ActionCreator.setReviewCreating(true));
+    createReview(
+        match.params.id,
+        data.newReview.rating,
+        data.newReview.review
+    )
+      .then((reviews) => {
+        dispatch(ActionCreator.setReviews(reviews));
+        dispatch(ActionCreator.setReviewCreating(false));
+      })
+      .catch(() => {
+        dispatch(ActionCreator.setError(true));
+        dispatch(ActionCreator.setReviewCreating(false));
+      });
+  },
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -65,6 +122,24 @@ const dataReducer = (state = initialState, action) => {
     case ActionType.SET_ERROR:
       return Object.assign({}, state, {
         isError: action.payload,
+      });
+    case ActionType.SET_REVIEWS:
+      return Object.assign({}, state, {
+        reviews: action.payload,
+        newReview: {
+          rating: ``,
+          review: ``,
+        },
+      });
+    case ActionType.CHANGE_FIELD_REVIEW:
+      return Object.assign({}, state, {
+        newReview: Object.assign({}, state.newReview, {
+          [action.payload.field]: action.payload.value,
+        }),
+      });
+    case ActionType.SET_REVIEW_CREATING:
+      return Object.assign({}, state, {
+        isReviewCreating: action.payload,
       });
     default:
       return state;

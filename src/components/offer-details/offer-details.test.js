@@ -13,10 +13,8 @@ it(`Should render Property correctly`, () => {
   const tree = renderer.create((
     <Provider store={store}>
       <OfferDetails
-        reviewsTotalCount={0}
         offer={allOffers[0].offers[0]}
         offers={[]}
-        reviews={[]}
       />
     </Provider>
   )).toJSON();

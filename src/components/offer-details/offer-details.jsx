@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {offerShape, mapTypes} from '../../types/rental-offers-types';
-import {reviewsListTypes} from '../../types/review-types';
 import {OFFER_TYPES_DISPLAY} from '../../constants';
 import {convertRatingToPercent} from '../../utils';
 import ReviewsList from '../reviews-list/reviews-list';
@@ -14,8 +13,6 @@ const onMouseEnter = () => {};
 
 const OfferDetails = (props) => {
   const {
-    reviews,
-    reviewsTotalCount,
     offers,
     offer,
   } = props;
@@ -122,7 +119,7 @@ const OfferDetails = (props) => {
                 </p>
               </div>
             </div>
-            <ReviewsList reviewsTotalCount={reviewsTotalCount} reviews={reviews} />
+            <ReviewsList />
           </div>
         </div>
         <section className="property__map map" style={{display: `flex`}}>
@@ -147,8 +144,6 @@ const OfferDetails = (props) => {
 
 OfferDetails.propTypes = {
   offer: offerShape.isRequired,
-  reviews: reviewsListTypes.reviews,
-  reviewsTotalCount: reviewsListTypes.reviewsTotalCount,
   offers: mapTypes.offers
 };
 

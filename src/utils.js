@@ -3,6 +3,9 @@ import {SortType} from './constants';
 const MAX_CITIES_COUNT = 6;
 const MAX_RATING_COUNT = 5;
 const MAX_RATING_PERCENT_COUNT = 100;
+const MAX_REVIEWS_COUNT = 10;
+const MIN_REVIEW_LENGTH = 50;
+const MAX_REVIEW_LENGTH = 300;
 
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -37,7 +40,6 @@ export const getSortedOffers = (offers, sortType) => {
       return offers;
   }
 };
-
 
 const offerAdapter = (hotel) => ({
   id: hotel.id,
@@ -85,11 +87,38 @@ export const offersAdapter = (data) => {
     }
   });
 
-  // console.log(groupOffers);
-
   return Object.values(groupOffers);
 };
 
+export const reviewsAdapter = (comment) => ({
+  text: comment.comment,
+  id: comment.id,
+  rating: comment.rating,
+  date: comment.date,
+  name: comment.user.name,
+  avatar: comment.user.avatar_url,
+  isPro: comment.user.is_pro,
+});
+
+
 export const convertRatingToPercent = (rating) => {
   return `${Math.round(rating) / MAX_RATING_COUNT * MAX_RATING_PERCENT_COUNT}%`;
+};
+
+export const getSortedReviewsSlice = (reviews) => reviews
+  .slice()
+  .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+  .slice(0, MAX_REVIEWS_COUNT);
+
+
+export const isValidReview = (values) => {
+  if (!values.rating || !values.review) {
+    return false;
+  }
+
+  if (values.review.length < MIN_REVIEW_LENGTH || values.review.length > MAX_REVIEW_LENGTH) {
+    return false;
+  }
+
+  return true;
 };

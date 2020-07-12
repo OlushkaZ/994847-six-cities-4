@@ -15,5 +15,4 @@ export const reviewTypes = {
 
 export const reviewsListTypes = {
   reviews: PropTypes.arrayOf(reviewShape).isRequired,
-  reviewsTotalCount: PropTypes.number.isRequired,
 };
