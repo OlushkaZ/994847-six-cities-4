@@ -32,7 +32,7 @@ ReviewsList.propTypes = reviewsListTypes;
 
 const mapStateToProps = (state) => ({
   authorizationStatus: state.user.authorizationStatus,
-  reviews: state.data.reviews,
+  reviews: state.reviews.reviews,
 });
 
 export {ReviewsList};

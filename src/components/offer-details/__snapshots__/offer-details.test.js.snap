@@ -82,11 +82,12 @@ exports[`Should render Property correctly 1`] = `
             Beautiful & luxurious apartment at great location
           </h1>
           <button
-            className="property__bookmark-button button property__bookmark-button--active"
+            className="property__bookmark-button button place-card__bookmark-button--active"
+            onClick={[Function]}
             type="button"
           >
             <svg
-              className="property__bookmark-icon"
+              className="place-card__bookmark-icon"
               height="33"
               width="31"
             >

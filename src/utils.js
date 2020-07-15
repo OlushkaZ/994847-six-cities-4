@@ -18,15 +18,20 @@ export const formatDate = (dateString) => {
   return new Intl.DateTimeFormat(`en`, options).format(date);
 };
 
-export const getOffersInCity = (city, offers) => {
-  return offers
-    .find((offer) => offer.location.city === city)
-    .offers;
+export const getLocationsFromOffers = (allOffers) => {
+  const citiesGroup = allOffers
+  .reduce((group, offer) => {
+    group[offer.location.city] = offer.location;
+    return group;
+  }, {});
+
+  return Object
+    .values(citiesGroup)
+    .slice(0, MAX_CITIES_COUNT);
 };
 
-export const getLocationsFromOffers = (allOffers) => allOffers
-  .slice(0, MAX_CITIES_COUNT)
-  .map((offer) => offer.location);
+export const getOffersByCity = (allOffers, city) => allOffers
+  .filter((offer) => offer.location.city === city);
 
 export const getSortedOffers = (offers, sortType) => {
   switch (sortType) {
@@ -41,8 +46,15 @@ export const getSortedOffers = (offers, sortType) => {
   }
 };
 
-const offerAdapter = (hotel) => ({
+export const offerAdapter = (hotel) => ({
   id: hotel.id,
+  location: {
+    city: hotel.city.name,
+    cityCoordinates: [
+      hotel.city.location.latitude,
+      hotel.city.location.longitude
+    ],
+  },
   coordinates: [
     hotel.location.latitude,
     hotel.location.longitude

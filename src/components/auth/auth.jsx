@@ -19,7 +19,7 @@ const Auth = ({authorizationStatus, email}) => {
             : (
               <Link
                 className="header__nav-link header__nav-link--profile"
-                to={{pathname: `/sign-in`}}
+                to={{pathname: `/favorites`}}
               >
                 <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                 <span className="header__user-name user__name">

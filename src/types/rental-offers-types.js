@@ -48,8 +48,7 @@ export const mainTypes = {
 };
 
 export const appTypes = {
-  currentLocation: locationShape.isRequired,
-  offers: PropTypes.arrayOf(offerShape).isRequired
+  authorizationStatus: PropTypes.string.isRequired,
 };
 
 export const offerCardTypes = Object.assign({}, offerShape.isRequired, {
@@ -70,6 +69,12 @@ export const mapTypes = {
         })
       })
   ).isRequired,
+};
+
+export const offerDetailsType = {
+  offer: offerShape,
+  offers: mapTypes.offers,
+  onDidMount: PropTypes.func.isRequired,
 };
 
 export const OfferDetailsTypes = {

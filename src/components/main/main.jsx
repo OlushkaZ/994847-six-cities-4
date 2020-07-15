@@ -1,5 +1,7 @@
 import React from 'react';
+import {connect} from "react-redux";
 
+import {getOffersByCity, getSortedOffers} from '../../utils';
 import {mainTypes} from '../../types/rental-offers-types';
 import OffersList from '../offers-list/offers-list';
 import Sorting from '../sorting/sorting';
@@ -66,4 +68,14 @@ const Main = (props) => {
 
 Main.propTypes = mainTypes;
 
-export default Main;
+const mapStateToProps = ({data, ui}) => ({
+  currentLocation: data.currentLocation,
+  offers: getSortedOffers(
+      getOffersByCity(data.allOffers, data.currentLocation.city),
+      ui.currentSortType
+  )
+});
+
+export {Main};
+export default connect(mapStateToProps)(Main);
+

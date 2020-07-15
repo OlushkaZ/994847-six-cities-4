@@ -8,6 +8,7 @@ import reducer from './reducer/combine-reducer';
 import App from './components/app/app';
 import {ActionCreator} from './reducer/data/data';
 import {ActionCreator as UserActionCreator} from './reducer/user/user';
+import {api} from './api';
 
 const RENTAL_OFFERS_COUNT = 4;
 
@@ -25,6 +26,18 @@ const store = createStore(reducer,
 
 store.dispatch(ActionCreator.loadOffers());
 store.dispatch(UserActionCreator.checkAuthorization());
+api.interceptors.response.use(
+    (response) => response,
+    (err) => {
+      const {response} = err;
+
+      if (response.status === 401) {
+        store.dispatch(UserActionCreator.changeAuthStatus(`NO_AUTH`));
+      }
+
+      throw err;
+    }
+);
 
 ReactDOM.render(
     <Provider store={store}>

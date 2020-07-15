@@ -1,8 +1,10 @@
 import React, {PureComponent, createRef} from 'react';
 import leaflet from 'leaflet';
 import {connect} from "react-redux";
+import {createSelector} from 'reselect';
 
 import {mapTypes} from '../../types/rental-offers-types';
+import {getOffersByCity} from '../../utils';
 
 class Map extends PureComponent {
   constructor(props) {
@@ -79,9 +81,18 @@ class Map extends PureComponent {
 
 Map.propTypes = mapTypes;
 
+
+const offersSelector = createSelector(
+    [
+      ({data}) => data.allOffers,
+      ({data}) => data.currentLocation.city,
+    ],
+    getOffersByCity
+);
+
 const mapStateToProps = (state) => ({
   currentLocation: state.data.currentLocation,
-  offers: state.data.currentOffers,
+  offers: offersSelector(state),
   activeOffer: state.ui.activeOfferLocation,
 });
 

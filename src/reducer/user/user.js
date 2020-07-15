@@ -32,11 +32,6 @@ const ActionCreator = {
       .then(({data}) => {
         dispatch(ActionCreator.changeAuthStatus(`AUTH`));
         dispatch(ActionCreator.setProfile(data));
-      })
-      .catch(({response}) => {
-        if (response.status === 401) {
-          dispatch(ActionCreator.changeAuthStatus(`NO_AUTH`));
-        }
       });
   },
   authenticate: (evt) => (dispatch, getState) => {
