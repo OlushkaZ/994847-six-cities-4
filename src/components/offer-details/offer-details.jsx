@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {withRouter, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import {ActionCreator} from '../../reducer/reviews';
 import {ActionCreator as DataActionCreator} from '../../reducer/data';
@@ -25,6 +26,7 @@ class OfferDetails extends React.PureComponent {
       offers,
       offer,
       onFavoriteClick,
+      authorizationStatus
     } = this.props;
 
     if (!offer) {
@@ -75,16 +77,29 @@ class OfferDetails extends React.PureComponent {
               )}
               <div className="property__name-wrapper">
                 <h1 className="property__name">{name}</h1>
-                <button
-                  onClick={() => onFavoriteClick(id, !isBookmark)}
-                  className={`property__bookmark-button button ${isBookmark ? ACTIVE_CLASS_NAME : ``}`}
-                  type="button"
-                >
-                  <svg className="place-card__bookmark-icon" width="31" height="33">
-                    <use xlinkHref="#icon-bookmark"></use>
-                  </svg>
-                  <span className="visually-hidden">To bookmarks</span>
-                </button>
+                {authorizationStatus === `NO_AUTH` ?
+                  (<Link to={{pathname: `/sign-in/`}}>
+                    <button
+                      className={`property__bookmark-button button ${isBookmark ? ACTIVE_CLASS_NAME : ``}`}
+                      type="button"
+                    >
+                      <svg className="place-card__bookmark-icon" width="31" height="33">
+                        <use xlinkHref="#icon-bookmark"></use>
+                      </svg>
+                      <span className="visually-hidden">To bookmarks</span>
+                    </button>
+                  </Link>) : (
+                    <button
+                      onClick={() => onFavoriteClick(id, !isBookmark)}
+                      className={`property__bookmark-button button ${isBookmark ? ACTIVE_CLASS_NAME : ``}`}
+                      type="button"
+                    >
+                      <svg className="place-card__bookmark-icon" width="31" height="33">
+                        <use xlinkHref="#icon-bookmark"></use>
+                      </svg>
+                      <span className="visually-hidden">To bookmarks</span>
+                    </button>
+                  )}
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
@@ -178,6 +193,7 @@ const mapStateToProps = (state, {match}) => {
   return {
     offers,
     offer,
+    authorizationStatus: state.user.authorizationStatus,
   };
 };
 
