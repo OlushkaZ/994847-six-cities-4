@@ -52,14 +52,6 @@ it(`Reducer: removeFromBookmark`, () => {
       },
       ActionCreator.removeFromBookmark(1))
   ).toEqual({
-    offers: [
-      {
-        location: {
-          city: ``,
-          cityCoordinates: [0, 0]
-        },
-        offers: []
-      }
-    ]
+    offers: []
   });
 });

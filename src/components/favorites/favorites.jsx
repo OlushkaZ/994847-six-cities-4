@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import {ActionCreator} from '../../reducer/favorites/favorites';
 import {convertRatingToPercent} from '../../utils';
 import {favoritesTypes} from '../../types/favorites-types';
+import NoFavorites from '../no-favorites/no-favorites';
 
 class Favorites extends React.PureComponent {
   componentDidMount() {
@@ -14,7 +15,7 @@ class Favorites extends React.PureComponent {
     const {offers, onRemove} = this.props;
     return (
       <main className="page__main page__main--favorites">
-        <div className="page__favorites-container container">
+        {offers.length ? (<div className="page__favorites-container container">
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
@@ -66,7 +67,8 @@ class Favorites extends React.PureComponent {
                 </li>
               ))}</ul>
           </section>
-        </div>
+        </div>) :
+          <NoFavorites/>}
       </main>
     );
   }

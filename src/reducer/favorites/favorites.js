@@ -42,9 +42,11 @@ const favoritesReducer = (state = initialState, action) => {
       });
     case ActionType.REMOVE_FROM_BOOKMARK:
       return Object.assign({}, state, {
-        offers: state.offers.map((groupOffer) => Object.assign({}, groupOffer, {
-          offers: groupOffer.offers.filter((cityOffer) => action.payload.offerId !== cityOffer.id)
-        }))
+        offers: state.offers
+          .map((groupOffer) => Object.assign({}, groupOffer, {
+            offers: groupOffer.offers.filter((cityOffer) => action.payload.offerId !== cityOffer.id)
+          }))
+          .filter((groupOffer) => groupOffer.offers.length > 0)
       });
     default:
       return state;
