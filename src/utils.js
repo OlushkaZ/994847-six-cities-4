@@ -33,7 +33,7 @@ export const getLocationsFromOffers = (allOffers) => {
 export const getOffersByCity = (allOffers, city) => allOffers
   .filter((offer) => offer.location.city === city);
 
-export const getSortedOffers = (offers, sortType) => {
+export const getSortedOffers = (offers, sortType = sortType.POPULAR) => {
   switch (sortType) {
     case SortType.PRICE_LOW_TO_HIGH:
       return offers.slice().sort((a, b) => a.price - b.price);
