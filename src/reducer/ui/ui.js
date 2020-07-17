@@ -1,5 +1,5 @@
 const initialState = {
-  currentSortType: ``,
+  currentSortType: `Popular`,
   activeOfferLocation: null,
   showSortMenu: false,
 };
