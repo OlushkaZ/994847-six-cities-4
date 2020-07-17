@@ -12,7 +12,12 @@ const store = createStore(reducer);
 it(`Should Favorites render correctly`, () => {
   const tree = renderer.create(
       <Provider store={store}>
-        <Favorites offers={[]} onRemove={jest.fn()} onDidMount={jest.fn()}/>
+        <Favorites
+          offers={[]}
+          onRemove={jest.fn()}
+          onDidMount={jest.fn()}
+          onChangeLocation={jest.fn()}
+        />
       </Provider>).toJSON();
 
   expect(tree).toMatchSnapshot();

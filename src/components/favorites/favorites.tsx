@@ -2,6 +2,7 @@ import * as React from 'react';
 import {connect} from "react-redux";
 import {Link} from 'react-router-dom';
 
+import {ActionCreator as DataActionCreator} from '../../reducer/data';
 import {ActionCreator} from '../../reducer/favorites/favorites';
 import {convertRatingToPercent} from '../../utils';
 import NoFavorites from '../no-favorites/no-favorites';
@@ -14,6 +15,7 @@ interface Props {
     offers: Offer[];
   }[];
   onRemove: (id: number) => void,
+  onChangeLocation: (location: OfferLocation) => void;
 }
 
 class Favorites extends React.PureComponent<Props> {
@@ -21,7 +23,7 @@ class Favorites extends React.PureComponent<Props> {
     this.props.onDidMount();
   }
   render() {
-    const {offers, onRemove} = this.props;
+    const {offers, onRemove, onChangeLocation} = this.props;
     return (
       <main className="page__main page__main--favorites">
         {offers.length ? (<div className="page__favorites-container container">
@@ -32,9 +34,13 @@ class Favorites extends React.PureComponent<Props> {
                 <li key={offer.location.city} className="favorites__locations-items">
                   <div className="favorites__locations locations locations--current">
                     <div className="locations__item">
-                      <a className="locations__item-link" href="#">
+                      <Link
+                        className="locations__item-link"
+                        to="/"
+                        onClick={() => onChangeLocation(offer.location)}
+                      >
                         <span>{offer.location.city}</span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="favorites__places">
@@ -90,6 +96,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   onDidMount: ActionCreator.loadFavoritesOffers,
   onRemove: ActionCreator.changeStatusFavorites,
+  onChangeLocation: DataActionCreator.changeLocation,
 };
 
 export {Favorites};

@@ -64,8 +64,6 @@ export const RENTAL_OFFER = {
   name: `Beautiful luxurious apartment at great location`,
   type: `hostel`,
   isPremium: true,
-  isBookmark: false,
-  onHeaderClick: () => {},
-  onMouseEnter: () => {}
+  isBookmark: false
 };
 

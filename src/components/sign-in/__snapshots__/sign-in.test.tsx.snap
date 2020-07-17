@@ -75,7 +75,7 @@ exports[`Should SignIn render correctly 1`] = `
           action="#"
           className="login__form form"
           method="post"
-          onSubmit={[Function]}
+          onSubmit={[MockFunction]}
         >
           <div
             className="login__input-wrapper form__input-wrapper"
@@ -88,9 +88,9 @@ exports[`Should SignIn render correctly 1`] = `
             <input
               className="login__input form__input"
               name="email"
-              onChange={[Function]}
+              onChange={[MockFunction]}
               placeholder="Email"
-              required=""
+              required={true}
               type="email"
             />
           </div>
@@ -105,9 +105,9 @@ exports[`Should SignIn render correctly 1`] = `
             <input
               className="login__input form__input"
               name="password"
-              onChange={[Function]}
+              onChange={[MockFunction]}
               placeholder="Password"
-              required=""
+              required={true}
               type="password"
             />
           </div>

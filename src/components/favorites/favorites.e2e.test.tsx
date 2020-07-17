@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -12,11 +13,13 @@ Enzyme.configure({
 it(`Should all the headers be clicked`, () => {
   const onRemove = jest.fn();
   const onDidMount = jest.fn();
+  const onChangeLocation = jest.fn();
 
   const citiesListShallow = shallow(
       <Favorites
         onDidMount={onDidMount}
         onRemove={onRemove}
+        onChangeLocation={onChangeLocation}
         offers={allOffers}
       />
   );
@@ -26,5 +29,11 @@ it(`Should all the headers be clicked`, () => {
     .at(0)
     .simulate(`click`);
 
+  citiesListShallow
+    .find(Link)
+    .at(0)
+    .simulate(`click`);
+
   expect(onRemove.mock.calls.length).toBe(1);
+  expect(onChangeLocation.mock.calls.length).toBe(1);
 });
