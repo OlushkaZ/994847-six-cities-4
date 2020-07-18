@@ -4,7 +4,7 @@ export const RENTAL_OFFERS = [
     location: {
       cityCoordinates: [52.3909553943508, 4.85309666406198],
     },
-    img: `img/apartment-01.jpg`,
+    img: `/img/apartment-01.jpg`,
     price: 100,
     rating: `95%`,
     name: `Beautiful luxurious apartment at great location`,
@@ -18,7 +18,7 @@ export const RENTAL_OFFERS = [
     location: {
       cityCoordinates: [52.3909553943508, 4.85309666406198],
     },
-    img: `img/apartment-02.jpg`,
+    img: `/img/apartment-02.jpg`,
     price: 193,
     rating: `60%`,
     name: `Canal View Prinsengracht`,
@@ -32,7 +32,7 @@ export const RENTAL_OFFERS = [
     location: {
       cityCoordinates: [52.3909553943508, 4.85309666406198],
     },
-    img: `img/apartment-03.jpg`,
+    img: `/img/apartment-03.jpg`,
     price: 250,
     rating: `16%`,
     name: `Nice, cozy, warm big bed apartment`,
@@ -46,7 +46,7 @@ export const RENTAL_OFFERS = [
     location: {
       cityCoordinates: [52.3909553943508, 4.85309666406198],
     },
-    img: `img/apartment-01.jpg`,
+    img: `/img/apartment-01.jpg`,
     price: 50,
     rating: `75%`,
     name: `Wood and stone place`,
@@ -58,7 +58,7 @@ export const RENTAL_OFFERS = [
 
 export const RENTAL_OFFER = {
   id: 1,
-  img: `img/apartment-01.jpg`,
+  img: `/img/apartment-01.jpg`,
   price: 100,
   rating: `95%`,
   name: `Beautiful luxurious apartment at great location`,
