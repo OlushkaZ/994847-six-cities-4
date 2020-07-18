@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {formatDate} from '../../utils';
 import {Review} from '../../types/review';
+import {formatDate} from '../../utils';
 
 interface Props {
   review: Review;

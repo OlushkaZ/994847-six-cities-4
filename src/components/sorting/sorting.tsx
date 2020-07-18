@@ -82,6 +82,11 @@ class Sorting extends React.PureComponent<Props> {
   }
 }
 
+const mapStateToProps = (state) => ({
+  currentSortType: state.ui.currentSortType,
+  isOpened: state.ui.showSortMenu,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   onSort(sortType) {
     dispatch(ActionCreator.sortOffers(sortType));
@@ -89,11 +94,6 @@ const mapDispatchToProps = (dispatch) => ({
   onShowSortMenu(isOpened) {
     dispatch(ActionCreator.showSortMenu(isOpened));
   }
-});
-
-const mapStateToProps = (state) => ({
-  currentSortType: state.ui.currentSortType,
-  isOpened: state.ui.showSortMenu,
 });
 
 export {Sorting};

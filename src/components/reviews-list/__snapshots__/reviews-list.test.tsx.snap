@@ -7,7 +7,9 @@ exports[`Should render ReviewsList correctly 1`] = `
   <h2
     className="reviews__title"
   >
-    Reviews · 
+    Review
+    s
+     · 
     <span
       className="reviews__amount"
     >
@@ -72,7 +74,7 @@ exports[`Should render ReviewsList correctly 1`] = `
           className="reviews__time"
           dateTime="2008-02-01"
         >
-          February 1, 2008
+          February 2008
         </time>
       </div>
     </li>
@@ -131,7 +133,7 @@ exports[`Should render ReviewsList correctly 1`] = `
           className="reviews__time"
           dateTime="2007-05-01"
         >
-          May 1, 2007
+          May 2007
         </time>
       </div>
     </li>
@@ -190,7 +192,7 @@ exports[`Should render ReviewsList correctly 1`] = `
           className="reviews__time"
           dateTime="2003-04-01"
         >
-          April 1, 2003
+          April 2003
         </time>
       </div>
     </li>

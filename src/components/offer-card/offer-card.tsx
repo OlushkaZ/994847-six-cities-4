@@ -4,8 +4,8 @@ import {connect} from "react-redux";
 
 import {ActionCreator} from "../../reducer/ui/ui";
 import {ActionCreator as DataActionCreator} from "../../reducer/data/data";
-import {convertRatingToPercent} from '../../utils';
 import {Offer} from '../../types/offer';
+import {convertRatingToPercent} from '../../utils';
 
 const ACTIVE_CLASS_NAME = `place-card__bookmark-button--active`;
 
@@ -93,6 +93,10 @@ const OfferCard: React.FC<Props> = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  authorizationStatus: state.user.authorizationStatus,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   onMouseEnter(offer) {
     dispatch(ActionCreator.activeOfferLocation(offer));
@@ -103,10 +107,6 @@ const mapDispatchToProps = (dispatch) => ({
   onFavoriteClick(id, isBookmark) {
     dispatch(DataActionCreator.changeStatusFavorites(id, isBookmark));
   }
-});
-
-const mapStateToProps = (state) => ({
-  authorizationStatus: state.user.authorizationStatus,
 });
 
 export {OfferCard};

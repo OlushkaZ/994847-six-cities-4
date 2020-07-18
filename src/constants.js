@@ -20,7 +20,7 @@ export const RentalFeature = {
   DRYER: `Dryer`,
 };
 
-export const OFFER_TYPES_DISPLAY = {
+export const OfferTypesDisplay = {
   apartment: `Apartment`,
   room: `Private Room`,
   house: `House`,
