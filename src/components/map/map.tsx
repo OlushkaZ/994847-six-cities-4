@@ -3,8 +3,8 @@ import * as leaflet from 'leaflet';
 import {connect} from "react-redux";
 import {createSelector} from 'reselect';
 
-import {getOffersByCity} from '../../utils';
 import {Offer, OfferLocation} from '../../types/offer';
+import {getOffersByCity} from '../../utils';
 
 interface Props {
   activeOffer: number;
@@ -93,8 +93,17 @@ const offersSelector = createSelector(
       ({data}) => data.allOffers,
       ({data}) => data.currentLocation.city,
     ],
-    getOffersByCity
+    getOffersByCity,
 );
+
+// const detailsOffersSelector = createSelector(
+//   [
+//     ({data}) => data.allOffers,
+//     ({data}) => data.currentLocation.city,
+//     ({data}, activeOffer) => activeOffer
+//   ],
+//   (allOffers, city, activeOffer) => getOffersByCity(allOffers, city),
+// );
 
 const mapStateToProps = (state) => ({
   currentLocation: state.data.currentLocation,

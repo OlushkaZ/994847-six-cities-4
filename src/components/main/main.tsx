@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {connect} from "react-redux";
 
+import {Offer, OfferLocation} from '../../types/offer';
 import {getOffersByCity, getSortedOffers} from '../../utils';
 import OffersList from '../offers-list/offers-list';
 import Sorting from '../sorting/sorting';
@@ -9,7 +10,6 @@ import CitiesList from '../cities-list/cities-list';
 import NoOffers from '../no-offers/no-offers';
 import Error from '../error/error';
 import Auth from '../auth/auth';
-import {Offer, OfferLocation} from '../../types/offer';
 
 interface Props {
   offers: Offer[];
@@ -52,7 +52,7 @@ const Main: React.FC<Props> = (props) => {
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
                   <b className="places__found">
-                    {`${offers.length} places to stay in ${currentLocation.city}`}
+                    {`${offers.length} place${offers.length !== 1 ? `s` : ``} to stay in ${currentLocation.city}`}
                   </b>
                   <Sorting />
                   <OffersList offers={offers} />

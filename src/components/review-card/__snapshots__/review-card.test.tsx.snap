@@ -56,7 +56,7 @@ exports[`Should render RentalCard correctly 1`] = `
       className="reviews__time"
       dateTime="2007-05-01"
     >
-      May 1, 2007
+      May 2007
     </time>
   </div>
 </li>

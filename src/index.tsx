@@ -10,6 +10,8 @@ import {ActionCreator} from './reducer/data/data';
 import {ActionCreator as UserActionCreator} from './reducer/user/user';
 import {api} from './api';
 
+const UNAUTHORIZED = 401;
+
 const store = createStore(reducer,
     compose(
         applyMiddleware(thunk),
@@ -26,7 +28,7 @@ api.interceptors.response.use(
     (err) => {
       const {response} = err;
 
-      if (response.status === 401) {
+      if (response.status === UNAUTHORIZED) {
         store.dispatch(UserActionCreator.changeAuthStatus(`NO_AUTH`));
       }
 

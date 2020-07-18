@@ -12,18 +12,22 @@ Enzyme.configure({
 it(`Should RentalCard handle onMouseEnter event`, () => {
   const onMouseEnter = jest.fn();
   const onMouseLeave = jest.fn();
+  const onFavoriteClick = jest.fn();
 
   const rentalCard = shallow(
       <OfferCard
         {...RENTAL_OFFER}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        onFavoriteClick={onFavoriteClick}
       />
   );
 
   rentalCard.find(`.place-card`).at(0).simulate(`mouseenter`);
   rentalCard.find(`.place-card`).at(0).simulate(`mouseleave`);
+  rentalCard.find(`button`).at(0).simulate(`click`);
 
   expect(onMouseEnter.mock.calls.length).toBe(1);
   expect(onMouseLeave.mock.calls.length).toBe(1);
+  expect(onFavoriteClick.mock.calls.length).toBe(1);
 });

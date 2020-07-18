@@ -10,7 +10,6 @@ const MAX_REVIEW_LENGTH = 300;
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
   const options = {
-    day: `numeric`,
     month: `long`,
     year: `numeric`,
   };

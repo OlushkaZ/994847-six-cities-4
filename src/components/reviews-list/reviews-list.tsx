@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {connect} from "react-redux";
 
+import {Review} from '../../types/review';
 import {getSortedReviewsSlice} from '../../utils';
 import ReviewCard from '../review-card/review-card';
 import CommentSubmissionForm from '../comment-submission-form/comment-submission-form';
-import {Review} from '../../types/review';
 
 interface Props {
   reviews: Review[];
@@ -17,7 +17,7 @@ const ReviewsList: React.FC<Props> = ({reviews, authorizationStatus}) => {
   return (
     <section className="property__reviews reviews">
       <h2 className="reviews__title">
-        Reviews &middot; <span className="reviews__amount">{reviews.length}</span>
+        Review{reviews.length !== 1 ? `s` : ``} &middot; <span className="reviews__amount">{reviews.length}</span>
       </h2>
       <ul className="reviews__list">
         {sortedReviews.map((review, index) => (

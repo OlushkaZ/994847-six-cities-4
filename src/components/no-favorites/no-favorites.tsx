@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const NoFavorutes: React.FC = () => {
+const NoFavorites: React.FC = () => {
   return (
     <div className="page__favorites-container container">
       <section className="favorites favorites--empty">
@@ -14,4 +14,4 @@ const NoFavorutes: React.FC = () => {
   );
 };
 
-export default NoFavorutes;
+export default NoFavorites;

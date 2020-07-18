@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import {createStore} from 'redux';
 import {Provider} from "react-redux";
@@ -11,14 +12,16 @@ const store = createStore(reducer);
 
 it(`Should Favorites render correctly`, () => {
   const tree = renderer.create(
-      <Provider store={store}>
-        <Favorites
-          offers={[]}
-          onRemove={jest.fn()}
-          onDidMount={jest.fn()}
-          onChangeLocation={jest.fn()}
-        />
-      </Provider>).toJSON();
+      <BrowserRouter>
+        <Provider store={store}>
+          <Favorites
+            offers={[]}
+            onRemove={jest.fn()}
+            onDidMount={jest.fn()}
+            onChangeLocation={jest.fn()}
+          />
+        </Provider>
+      </BrowserRouter>).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
